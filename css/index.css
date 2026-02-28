@@ -1,24 +1,27 @@
-/* General Reset */
+/* ========================= */
+/* GENERAL RESET */
+/* ========================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body, html {
+html, body {
     height: 100%;
-    font-family: 'Roboto', sans-serif; /* A modern font */
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    background: linear-gradient(135deg, #e0eafc, #cfdef3); /* Soft gradient */
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
     color: #333;
 }
 
-/* Header */
+/* ========================= */
+/* HEADER */
+/* ========================= */
 header {
     background-color: #1f2833;
     color: #66fcf1;
@@ -26,28 +29,43 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
-    margin: 0;
     font-size: 1.8rem;
     font-weight: 700;
 }
 
-header nav a {
+/* Desktop Nav */
+.right-header {
+    display: flex;
+}
+
+.right-header a {
     color: #66fcf1;
     margin-left: 20px;
     text-decoration: none;
     font-size: 1.1rem;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-header nav a:hover {
+.right-header a:hover {
     color: #45a29e;
 }
 
-/* Main Content */
+/* Hamburger (hidden on desktop) */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #66fcf1;
+}
+
+/* ========================= */
+/* MAIN CONTENT */
+/* ========================= */
 main {
     flex: 1;
     display: flex;
@@ -56,18 +74,17 @@ main {
     padding: 20px;
 }
 
-main .content {
+.content {
     background-color: white;
     padding: 40px;
-    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.15); /* Softer shadow */
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.15);
     text-align: center;
     border-radius: 10px;
     width: 95%;
-    height: 95%;
-}
+    max-width: 900px;
 
-.content img {
-    width: 500px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 main h2 {
@@ -79,19 +96,39 @@ main h2 {
 main p {
     font-size: 1.1rem;
     color: #444;
+    margin-bottom: 15px;
 }
 
-/* Footer */
+/* Responsive Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.content img {
+    max-width: 300px;
+    margin: 20px auto;
+}
+
 footer {
     background-color: #1f2833;
     color: #c5c6c7;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* allows wrapping instead of overlapping */
+    gap: 15px; /* spacing between items */
     text-align: center;
-    padding: 15px;
+}
+
+footer p {
+    margin: 0;
 }
 
 footer a {
     color: #66fcf1;
-    margin: 0 10px;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -100,27 +137,67 @@ footer a:hover {
     color: #45a29e;
 }
 
-/* Media Query for smaller screens */
-@media (max-width: 700px) {
+/* ========================= */
+/* MOBILE STYLES */
+/* ========================= */
+@media (max-width: 768px) {
+
     header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        padding: 15px;
     }
 
-    header nav {
+    /* Show hamburger */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Hide nav by default */
+    .right-header {
+        width: 100%;
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+    }
+
+    /* When active (JS adds class) */
+    .right-header.active {
+        max-height: 500px;
         margin-top: 10px;
     }
 
-    header nav a {
-        margin: 0 10px;
+    .right-header a {
+        margin: 6px 0;
+        padding: 12px;
+        background-color: #45a29e;
+        border-radius: 6px;
+        text-align: center;
+        font-size: 1rem;
     }
 
-    main .content {
+    main {
+        padding: 15px;
+    }
+
+    .content {
         padding: 20px;
         width: 100%;
     }
-    .content img {
-        width: 350px;
+
+    main h2 {
+        font-size: 1.8rem;
+    }
+
+    main p {
+        font-size: 1rem;
+    }
+
+    footer {
+        padding: 20px 10px;
+    }
+
+    footer a {
+        display: block;
+        margin: 8px 0;
     }
 }

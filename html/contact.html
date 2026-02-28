@@ -13,6 +13,7 @@
         <div class="left-header">
             <h1>James Ockenfels</h1>
         </div>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
         <nav class="right-header">
             <a href="../index.html">Home</a>
             <a href="projects.html">Projects</a>
@@ -25,7 +26,14 @@
             <a href="roulette.html">Roulette (NEW!)</a> -->
         </nav>
     </header>
+<script>
+const toggle = document.getElementById("menu-toggle");
+const nav = document.querySelector(".right-header");
 
+toggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
+});
+</script>
     <main>
         <div class="content">
             <h2>Contact Me</h2>

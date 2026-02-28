@@ -9,22 +9,30 @@
     <link rel="stylesheet" href="../css/goals.css">
 </head>
 <body>
-    <header>
-        <div class="left-header">
-            <h1>James Ockenfels</h1>
-        </div>
-        <nav class="right-header">
-            <a href="../index.html">Home</a>
-            <a href="projects.html">Projects</a>
-            <a href="goals.html">Goals</a>
-            <a href="education.html">Education</a>
-            <a href="about.html">About Me</a>
-            <a href="contact.html">Contact</a>
-      <!--  <a href="info.html">Info</a>
-            <a href="blackjack.html">BlackJack</a>
-            <a href="roulette.html">Roulette (NEW!)</a> -->
-        </nav>
-    </header>
+<header>
+    <div class="left-header">
+        <h1>James Ockenfels</h1>
+    </div>
+
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+
+    <nav class="right-header">
+        <a href="../index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="goals.html">Goals</a>
+        <a href="education.html">Education</a>
+        <a href="about.html">About Me</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+<script>
+const toggle = document.getElementById("menu-toggle");
+const nav = document.querySelector(".right-header");
+
+toggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
+});
+</script>
 
     <main>
         <div class="content">

@@ -13,6 +13,7 @@
         <div class="left-header">
             <h1>James Ockenfels</h1>
         </div>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
         <nav class="right-header">
             <a href="../index.html">Home</a>
             <a href="projects.html">Projects</a>
@@ -25,6 +26,14 @@
             <a href="roulette.html">Roulette (NEW!)</a> -->
         </nav>
     </header>
+    <script>
+const toggle = document.getElementById("menu-toggle");
+const nav = document.querySelector(".right-header");
+
+toggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
+});
+</script>
 
     <main>
         <div class="content">
@@ -57,10 +66,10 @@
                     </tr>
                 </tbody>
             </table>
-                    <img src="../img/GoogleIT.png" alt="Portfolio sample image" width=35%" style="padding-top: 25px; border-radius: 10px; border-color: black; border-style: dashed; border-width: 2px;">
-
-            <img src="../img/GoogleCyberSecuirty.png" alt="Portfolio sample image" width=35%" style="padding-top: 25px;border-radius: 10px; border-color: black; border-style: dashed; border-width: 2px;"">
-        </div>
+            <div class="image-row">
+    <img src="../img/GoogleIT.png" alt="Google IT Cert">
+    <img src="../img/GoogleCyberSecuirty.png" alt="Google Cyber Cert">
+</div> </div>
     </main>
     
     <footer>

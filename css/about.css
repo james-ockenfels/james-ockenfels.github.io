@@ -1,11 +1,13 @@
-/* General Reset */
+/* ========================= */
+/* GENERAL RESET */
+/* ========================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body, html {
+html, body {
     height: 100%;
     font-family: 'Roboto', sans-serif;
 }
@@ -13,12 +15,15 @@ body, html {
 body {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    background-color: #f9f9f9;
+    min-height: 100vh; /* ensures footer stays at bottom */
+        background: linear-gradient(135deg, #e0eafc, #cfdef3);
+
     color: #333;
 }
 
-/* Header */
+/* ========================= */
+/* HEADER */
+/* ========================= */
 header {
     background-color: #1f2833;
     color: #66fcf1;
@@ -26,43 +31,58 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
-    margin: 0;
     font-size: 1.8rem;
     font-weight: 700;
 }
 
-header nav a {
+.right-header {
+    display: flex;
+}
+
+.right-header a {
     color: #66fcf1;
     margin-left: 20px;
     text-decoration: none;
     font-size: 1.1rem;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-header nav a:hover {
+.right-header a:hover {
     color: #45a29e;
 }
 
-/* Main Content */
+/* Hamburger */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #66fcf1;
+}
+
+/* ========================= */
+/* MAIN CONTENT */
+/* ========================= */
 main {
-    flex: 1;
+    flex: 1; /* pushes footer down */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     padding: 20px;
 }
 
-main .content {
+.content {
     background-color: white;
     padding: 40px;
     box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.15);
     text-align: center;
     border-radius: 10px;
     width: 95%;
+    max-width: 900px;
 }
 
 main h2 {
@@ -74,23 +94,81 @@ main h2 {
 main p {
     font-size: 1.1rem;
     color: #444;
+    margin-bottom: 15px;
 }
 
-/* Footer */
+/* ========================= */
+/* FOOTER */
+/* ========================= */
 footer {
     background-color: #1f2833;
     color: #c5c6c7;
-    text-align: center;
-    padding: 15px;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+footer p {
+    margin: 0;
 }
 
 footer a {
     color: #66fcf1;
-    margin: 0 10px;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 footer a:hover {
     color: #45a29e;
+}
+
+/* ========================= */
+/* MOBILE STYLES */
+/* ========================= */
+@media (max-width: 768px) {
+
+    header {
+        padding: 15px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .right-header {
+        width: 100%;
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+    }
+
+    .right-header.active {
+        max-height: 500px;
+        margin-top: 10px;
+    }
+
+    .right-header a {
+        margin: 6px 0;
+        padding: 12px;
+        background-color: #45a29e;
+        border-radius: 6px;
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    main h2 {
+        font-size: 1.8rem;
+    }
+
+    main p {
+        font-size: 1rem;
+    }
+
+    .content {
+        padding: 20px;
+    }
 }

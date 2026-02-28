@@ -13,23 +13,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <header>
-        <div class="left-header">
-            <h1>James Ockenfels</h1>
-        </div>
-        <nav class="right-header">
-            <a href="index.html">Home</a>
+<header>
+    <div class="left-header">
+        <h1>James Ockenfels</h1>
+    </div>
+
+    <div class="menu-toggle" id="menu-toggle">
+        ☰
+    </div>
+
+    <nav class="right-header" id="nav-menu">
+        <a href="index.html">Home</a>
             <a href="html/projects.html">Projects</a>
             <a href="html/goals.html">Goals</a>
             <a href="html/education.html">Education</a>
             <a href="html/about.html">About Me</a>
             <a href="html/contact.html">Contact</a>
-      <!--  <a href="info.html">Info</a> these are old, shout out for reading my code
-            <a href="blackjack.html">BlackJack</a>
-            <a href="roulette.html">Roulette (NEW!)</a> -->
-        </nav>
-    </header>
+    </nav>
+</header>
+<script>
+const toggle = document.getElementById("menu-toggle");
+const nav = document.querySelector(".right-header");
 
+toggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
+});
+</script>
     <main>
         <div class="content">
             <h2>Welcome to My Portfolio</h2>

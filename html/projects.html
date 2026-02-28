@@ -13,6 +13,7 @@
         <div class="left-header">
             <h1>James Ockenfels</h1>
         </div>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
         <nav class="right-header">
             <a href="../index.html">Home</a>
             <a href="projects.html">Projects</a>
@@ -25,6 +26,14 @@
             <a href="roulette.html">Roulette (NEW!)</a> -->
         </nav>
     </header>
+    <script>
+const toggle = document.getElementById("menu-toggle");
+const nav = document.querySelector(".right-header");
+
+toggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
+});
+</script>
 
     <main>
         <div class="content">
@@ -76,15 +85,15 @@
                 </a>
                 <h3>Fps demo</h3>
                 <p>This is a demo for a fps game i want to make. i plan to keep is short and sweet, and not expand it that big.</p>            </div>
-        </div>
+
         <div class="bubble">
-            <a href="Sones-Tycoon/index.html">
-                <img src="../img/Sones-Tycoon.png" alt="Image 3">
-            </a>
-            <h3>WW1 Tycoon</h3>
-            <p>This is a tycoon game made in 12 hours i made instead of writing a essay</p>            </div>
+        <a href="Sones-Tycoon/index.html">
+            <img src="../img/Sones-Tycoon.png" alt="WW1 Tycoon">
+        </a>
+        <h3>WW1 Tycoon</h3>
+        <p>This is a tycoon game made in 12 hours I made instead of writing an essay.</p>
     </div>
-    
+    </div>
     </main>
 
     <footer>
