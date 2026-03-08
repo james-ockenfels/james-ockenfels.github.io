@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Ockenfels - Setting Up My Home Lab</title>
+    <link rel="icon" type="image/x-icon" href="../../img/FAVICON.png">
+    <link rel="stylesheet" href="../../css/blog-post.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com" rel="stylesheet">
+
+</head>
+<body>
+
+    <header>
+        <div class="left-header">
+            <h1>James Ockenfels</h1>
+        </div>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+        <nav class="right-header">
+            <a href="../../index.html">Home</a>
+            <a href="../projects.html">Projects</a>
+            <a href="../goals.html">Goals</a>
+            <a href="../education.html">Education</a>
+            <a href="../about.html">About Me</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../downloads.html">Downloads</a>
+            <a href="../blog.html" class="active">Blog</a>
+        </nav>
+    </header>
+
+    <script>
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.querySelector(".right-header");
+        toggle.addEventListener("click", () => nav.classList.toggle("active"));
+    </script>
+
+    <main>
+        <div class="post-container">
+
+            <!-- Back link -->
+            <a href="../blog.html" class="back-link">← Back to Blog</a>
+
+            <!-- Post header -->
+            <div class="post-header">
+                <span class="post-date">March 17, 2025</span>
+                <h2 class="post-title">Flipper-32: Building My Own Flipper Zero on an ESP32</h2>
+                <p class="post-subtitle">I built a Flipper Zero-inspired IR remote tool using an ESP32, an OLED screen, and a handful of components, here's how it came together.</p>
+            </div>
+
+            <!-- Hero image -->
+            <div class="post-hero-image">
+                <img src="../../img/blog/Flipper-32.jpg" alt="Flipper-32 device" />
+            </div>
+
+            <!-- Post body -->
+            <div class="post-body">
+                <p>
+                    If you're into cybersecurity or hardware hacking, you've probably heard of the Flipper Zero. a pocket-sized multi-tool that can interact with all kinds of wireless protocols. It's a cool piece of hardware, but it's also not cheap. So I decided to build something inspired by it using an ESP32, which I already had lying around. The result is the Flipper-32: a DIY IR remote capture and transmit device with a small OLED display, a MicroSD card slot for storage, and four buttons for navigation.
+                </p>
+                <p>
+                    The project is fully open source under the GPL-3.0 license and is up on my GitHub if you want to build one yourself.
+                </p>
+
+                <h3>What It Does</h3>
+                <p>
+                    The Flipper-32 focuses on infrared (IR) functionality. It can receive and decode IR signals from remotes and other devices, and transmit them back. It supports a solid range of protocols out of the box:
+                </p>
+                <ul>
+                    <li>NEC, NECext, NEC42, NEC42ext</li>
+                    <li>Samsung32</li>
+                    <li>RC6, RC5, RC5X</li>
+                    <li>SIRC, SIRC15, SIRC20</li>
+                    <li>Kaseikyo</li>
+                </ul>
+                <p>
+                    RCA and Pioneer aren't supported yet, and RAW data capture is something I'm planning to add down the line. Bluetooth functionality is also on the roadmap.
+                </p>
+
+                <h3>What You Need to Build One</h3>
+                <p>
+                    The component list is pretty minimal and all of it is cheap and easy to source:
+                </p>
+                <ul>
+                    <li>ESP32 microcontroller</li>
+                    <li>64x128 4-pin OLED display</li>
+                    <li>MicroSD card to SD card adapter</li>
+                    <li>4 push buttons</li>
+                    <li>IR LED</li>
+                    <li>Breadboard or solder board and wires</li>
+                    <li>Optionally: a small battery connected to VIN and GND with a switch for portable use</li>
+                </ul>
+
+                <h3>Software Setup</h3>
+                <p>
+                    To get the code onto your ESP32 you'll need Arduino IDE and the following libraries installed via the Library Manager:
+                </p>
+                <ul>
+                    <li>Adafruit GFX Library (1.11.11)</li>
+                    <li>Adafruit SSD1306 (2.5.13)</li>
+                    <li>SD Library (1.3.0)</li>
+                    <li>ezButton (1.0.6)</li>
+                    <li>IRMP (3.6.4)</li>
+                </ul>
+                <p>
+                    Once those are installed, download <code>ir-parsed-testing.ino</code> and <code>PinDefinitionsAndMore.h</code> from the repo. Open the <code>.ino</code> file in Arduino IDE, add a new tab, paste in <code>PinDefinitionsAndMore.h</code>, and make sure the filename matches. Then plug in your ESP32, select the right board and port, and hit Upload.
+                </p>
+
+                <h3>Wiring It Up</h3>
+                <p>Here's how everything connects to the ESP32:</p>
+
+                <p><strong>SD Card</strong></p>
+                <ul>
+                    <li>Pin 1 → GPIO 15</li>
+                    <li>Pin 2 → GPIO 23</li>
+                    <li>Pin 3 → GND</li>
+                    <li>Pin 4 → 3.3V</li>
+                    <li>Pin 5 → GPIO 18</li>
+                    <li>Pin 6 → GND</li>
+                    <li>Pin 7 → GPIO 19</li>
+                </ul>
+
+                <p><strong>OLED Display</strong></p>
+                <ul>
+                    <li>VCC → 3.3V</li>
+                    <li>GND → GND</li>
+                    <li>SDA → GPIO 21</li>
+                    <li>SCL → GPIO 22</li>
+                </ul>
+
+                <p><strong>Buttons</strong></p>
+                <ul>
+                    <li>Button 1 → GPIO 12 (Plus)</li>
+                    <li>Button 2 → GPIO 14 (Minus)</li>
+                    <li>Button 3 → GPIO 27 (Equal/Select)</li>
+                    <li>Button 4 → GPIO 26 (Back)</li>
+                </ul>
+                <p>Make sure each button is wired so that ground and the pin are only connected when the button is pressed.</p>
+
+                <p><strong>IR LED</strong></p>
+                <ul>
+                    <li>+ → GPIO 4</li>
+                    <li>- → GND</li>
+                </ul>
+
+                <h3>What I Learned</h3>
+                <p>
+                    This was my first real hardware project that combined embedded C++ programming with physical components. Getting the IR library working correctly and parsing the decoded signals into something usable took the most trial and error. The Serial Monitor in Arduino IDE became my best friend for debugging. I also learned a lot about how IR protocols actually work, there's more structure to a TV remote signal than you'd think.
+                </p>
+                <p>
+                    Adding the battery and power switch at the end was a small touch but made the whole thing feel like an actual device rather than a breadboard experiment. The project has 2 stars and a fork on GitHub so far, which is pretty cool to see.
+                </p>
+                <p>
+                    If you want to check out the code or build your own, the full repo is on my GitHub. Happy hacking! 🚀
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>Connect with me:</p>
+        <a href="https://github.com/james-ockenfels" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/james-ockenfels-770811391/" target="_blank">LinkedIn</a>
+        <a href="https://tryhackme.com/p/hackerman102030" target="_blank">TryHackMe</a>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Ockenfels - Setting Up My Home Lab</title>
+    <link rel="icon" type="image/x-icon" href="../../img/FAVICON.png">
+    <link rel="stylesheet" href="../../css/blog-post.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com" rel="stylesheet">
+
+</head>
+<body>
+
+    <header>
+        <div class="left-header">
+            <h1>James Ockenfels</h1>
+        </div>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+        <nav class="right-header">
+            <a href="../../index.html">Home</a>
+            <a href="../projects.html">Projects</a>
+            <a href="../goals.html">Goals</a>
+            <a href="../education.html">Education</a>
+            <a href="../about.html">About Me</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../downloads.html">Downloads</a>
+            <a href="../blog.html" class="active">Blog</a>
+        </nav>
+    </header>
+
+    <script>
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.querySelector(".right-header");
+        toggle.addEventListener("click", () => nav.classList.toggle("active"));
+    </script>
+
+   <main>
+        <div class="post-container">
+
+            <!-- Back link -->
+            <a href="../blog.html" class="back-link">← Back to Blog</a>
+
+            <!-- Post header -->
+            <div class="post-header">
+                <span class="post-date">April 14, 2025</span>
+                <h2 class="post-title">How I Built a Bot That Could Bypass Bot Detection</h2>
+                <p class="post-subtitle">For a web scraping assignment in my scripting fundamentals class, I had to build a scraper that could get past the bot protection on real websites. Here's what I learned.</p>
+            </div>
+
+            <!-- Hero image -->
+            <div class="post-hero-image">
+                <img src="../../img/blog/Website-scraper.png" alt="Web scraping bot illustration" />
+            </div>
+
+            <!-- Post body -->
+            <div class="post-body">
+                <p>
+                    In my scripting fundamentals class, we were given an assignment that seemed straightforward at first: write a bot to scrape data from a few websites. The catch was that the sites we were targeting: Amazon, DoorDash, and Ticketmaster, all have bot protection. So the real challenge wasn't just scraping, it was scraping without getting caught.
+                </p>
+                <p><sub>
+                    (Quick note: I was supposed to turn this in on Apirl 5th but somehow forgot about it until April 14th, Oops.)</sub>
+                </p>
+
+                <h3>Version 1: The Obvious Bot</h3>
+                <p>
+                    My first attempt was simple and naive. I used Python's <code>requests</code> library to fire off a GET request to each URL with no headers, no cookies, nothing. exactly what a bot looks like to any halfway decent detection system.
+                </p>
+
+<pre><code>import requests
+from bs4 import BeautifulSoup
+
+urls = [
+    "https://www.amazon.com",
+    "https://www.doordash.com",
+    "https://www.ticketmaster.com"
+]
+
+for url in urls:
+    print(f"\nScraping {url} with obvious bot behavior...\n")
+
+    try:
+        response = requests.get(url, timeout=10)
+    except requests.exceptions.RequestException as e:
+        print(f"Request error: {e}")
+        continue
+
+    if response.status_code != 200:
+        print(f"Blocked or redirected! Status code: {response.status_code}")
+        continue
+
+    soup = BeautifulSoup(response.text, "html.parser")
+    title = soup.title.string if soup.title else "No title found"
+    print(f"Title: {title}")</code></pre>
+
+                <p>
+                    As expected, all three sites blocked it immediately. No headers means no user-agent string, which is one of the first things bot detectors check for. The responses came back with non-200 status codes, the sites knew exactly what was happening and shut it down before any real data could be pulled.
+                </p>
+
+                <h3>Why It Got Caught</h3>
+                <p>
+                    When a real browser visits a website it sends a bunch of information along with the request, things like the user-agent (which browser and OS you're using), the window size, and various JavaScript properties that indicate a human is in control. A bare <code>requests.get()</code> call sends none of that. To bot detection systems, it's basically a giant neon sign that says "I am a script."
+                </p>
+
+                <h3>Version 2: The Stealth Bot</h3>
+                <p>
+                    For the second version I switched to Selenium, which actually controls a real Chrome browser. That alone helps a lot, but the key was adding a few extra tricks to make the browser look as human as possible. I used a YouTube tutorial to figure out the browser setup side of things.
+                </p>
+
+<pre><code>from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+import time
+import random
+
+def setup_stealth_browser():
+    options = Options()
+    options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36")
+    options.add_argument("window-size=1920,1080")
+
+    driver = webdriver.Chrome(options=options)
+    driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
+        "source": """
+            Object.defineProperty(navigator, 'webdriver', { get: () => undefined })
+        """
+    })
+    return driver
+
+def stealth_scrape(url):
+    print(f"\nTrying stealth scrape on {url}...")
+    driver = setup_stealth_browser()
+    try:
+        driver.get(url)
+        time.sleep(random.uniform(3, 5))
+        title = driver.title
+        print(f"Title: {title}")
+    except Exception as e:
+        print(f"Failed to scrape {url}: {e}")
+    finally:
+        driver.quit()
+
+urls = [
+    "https://www.amazon.com",
+    "https://www.doordash.com",
+    "https://www.ticketmaster.com"
+]
+
+for url in urls:
+    stealth_scrape(url)</code></pre>
+
+                <p>
+                    This version worked perfectly on all three sites. Here's what made the difference:
+                </p>
+                <ul>
+                    <li><strong>Disabling AutomationControlled</strong> — Chrome sets a flag when it's being driven by automation. This argument disables that flag so sites can't detect it.</li>
+                    <li><strong>Custom user-agent</strong> — sets a realistic browser string so the request looks like it's coming from a normal Chrome install on Windows.</li>
+                    <li><strong>Window size</strong> — headless browsers often report unusual dimensions. Setting a standard 1920x1080 size looks more human.</li>
+                    <li><strong>Hiding the webdriver property</strong> — using a Chrome DevTools Protocol command to override <code>navigator.webdriver</code> so it returns <code>undefined</code> instead of <code>true</code>, which is another common bot detection check.</li>
+                    <li><strong>Random delay</strong> — waiting a random 3–5 seconds before grabbing data mimics the natural pause of a human reading the page.</li>
+                </ul>
+
+                <h3>What I Took Away From It</h3>
+                <p>
+                    This assignment was a good lesson in how bot detection actually works, and how thin the line is between a script and a convincing fake browser. Most basic detection is just checking for things a real browser would always have. Once you start providing those signals, you can get surprisingly far.
+                </p>
+                <p>
+                    It also made me think more carefully about the defensive side of things. If I were building a site that needed to block scrapers, I'd need to look beyond just user-agents and JavaScript flags, because as this project shows, those are pretty easy to spoof.
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>Connect with me:</p>
+        <a href="https://github.com/james-ockenfels" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/james-ockenfels-770811391/" target="_blank">LinkedIn</a>
+        <a href="https://tryhackme.com/p/hackerman102030" target="_blank">TryHackMe</a>
+    </footer>
+
+</body>
+</html>

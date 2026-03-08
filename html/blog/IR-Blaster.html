@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Ockenfels - Setting Up My Home Lab</title>
+    <link rel="icon" type="image/x-icon" href="../../img/FAVICON.png">
+    <link rel="stylesheet" href="../../css/blog-post.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com" rel="stylesheet">
+
+</head>
+<body>
+
+    <header>
+        <div class="left-header">
+            <h1>James Ockenfels</h1>
+        </div>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+        <nav class="right-header">
+            <a href="../../index.html">Home</a>
+            <a href="../projects.html">Projects</a>
+            <a href="../goals.html">Goals</a>
+            <a href="../education.html">Education</a>
+            <a href="../about.html">About Me</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../downloads.html">Downloads</a>
+            <a href="../blog.html" class="active">Blog</a>
+        </nav>
+    </header>
+
+    <script>
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.querySelector(".right-header");
+        toggle.addEventListener("click", () => nav.classList.toggle("active"));
+    </script>
+
+    <main>
+        <div class="post-container">
+
+            <!-- Back link -->
+            <a href="../blog.html" class="back-link">← Back to Blog</a>
+
+            <!-- Post header -->
+            <div class="post-header">
+                <span class="post-date">December 20, 2024</span>
+                <h2 class="post-title">I Built an IR Blaster Because I Was Too Lazy to Get Out of Bed</h2>
+                <p class="post-subtitle">My LED remote was too weak to reach from my bed, so over Christmas break I built an amplified IR blaster, and then added phone support through the headphone jack.</p>
+            </div>
+
+            <!-- Hero image -->
+            <div class="post-hero-image">
+                <img src="../../img/blog/IR-Blaster.jpg" alt="IR Blaster circuit" />
+            </div>
+
+            <!-- Post body -->
+            <div class="post-body">
+                <p>
+                    The problem was simple: my LED strip remote is weak. From my bed, I'd have to hold it at exactly the right angle to get it to respond, and half the time it just wouldn't work at all. Over Christmas break I had some free time and components lying around, so I decided to fix it properly instead of just dealing with it.
+                </p>
+                <p>
+                    The solution was an IR blaster, a circuit that takes the signal from my existing remote and uses a transistor and a 9V battery to drive three IR LEDs at once instead of one, making the signal significantly stronger. Later I added a second feature: a phone input through the headphone jack, so I can use an app to send custom IR codes straight from my phone without needing the remote at all. I also published the build on Instructables for anyone who wants to make their own.
+                </p>
+
+                <h3>Why a Transistor?</h3>
+                <p>
+                    A standard LED remote outputs a weak IR signal, just enough to control a receiver a few feet away under ideal conditions. The idea behind the blaster is to use that signal not as the power source for the LEDs, but as a control signal. The remote's output goes into the base of an NPN transistor, which acts as a switch. When the remote fires, the transistor opens and lets the 9V battery drive the LEDs directly, much more power, much stronger signal.
+                </p>
+
+                <h3>Building the Base Circuit</h3>
+                <div class="post-image">
+                <img src="../../img/blog/IR-Blaster1.png" alt="IR Blaster circuit" />
+            </div>
+                <p>
+                    The core build is pretty straightforward. I put three IR LEDs in parallel and connected the positive leads to a 9V battery. The negative leads go to the collector of the NPN transistor (I used a 2N2222, but basically any NPN will work). The signal wire from the remote goes to the base, and the ground from both the remote and the battery connect to the emitter.
+                </p>
+                <ul>
+                    <li>3x IR LEDs wired in parallel → 9V battery positive</li>
+                    <li>LED negatives → transistor collector</li>
+                    <li>Remote signal wire → transistor base</li>
+                    <li>Remote GND + battery negative → transistor emitter</li>
+                </ul>
+                <p>
+                    I actually built two of these circuits with the bases and emitters linked together, giving me six LEDs total for even more range. If you want to go that far, it's just doubling the circuit and tying the control pins together.
+                </p>
+
+                <h3>Adding Phone Support</h3>
+                <img src="../../img/blog/IR-Blaster2.png" alt="IR Blaster circuit" />
+                <p>
+                    After the base circuit was working I wanted to go further, instead of always needing the physical remote, I wanted to be able to send IR codes directly from my phone. It turns out you can do this through the headphone jack using an app that encodes IR signals as audio.
+                </p>
+                <p>
+                    The catch is that audio output is AC and the transistor needs a DC control signal, so I added a rectifier made from four 1N4148 switching diodes arranged in a diamond (bridge rectifier) formation. The left and right audio wires from the cable feed into the power inputs of the rectifier, and the DC output connects to the base and emitter of the transistor from the first step. The app outputs the same signal on both left and right channels so it doesn't matter which side is which.
+                </p>
+                <ul>
+                    <li>Audio cable left + right → rectifier input</li>
+                    <li>Rectifier positive output → transistor base</li>
+                    <li>Rectifier negative output → transistor emitter</li>
+                </ul>
+                <p>
+                    I also ran a pair of wires out from the base and emitter so I can plug in other signal sources, an Arduino or Raspberry Pi, for example, without having to take the circuit apart. The app I used is IR Plus Wave on Android. I have no idea if there's an equivalent for iPhone.
+                </p>
+
+                <h3>The Result</h3>
+                <p>
+                    It works exactly how I wanted. From anywhere in my room I can hit the remote once and the LEDs respond instantly, no more awkward angles. And with the phone input I can send custom IR codes I've looked up or recorded, which opens up control over basically any IR device in the room, not just the LED strip.
+                </p>
+                <p>
+                    It's a small project but a satisfying one. Sometimes the best motivation to build something is just being annoyed enough by a problem that fixing it is easier than living with it.
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>Connect with me:</p>
+        <a href="https://github.com/james-ockenfels" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/james-ockenfels-770811391/" target="_blank">LinkedIn</a>
+        <a href="https://tryhackme.com/p/hackerman102030" target="_blank">TryHackMe</a>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Ockenfels - Setting Up My Home Lab</title>
+    <link rel="icon" type="image/x-icon" href="../../img/FAVICON.png">
+    <link rel="stylesheet" href="../../css/blog-post.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com" rel="stylesheet">
+
+</head>
+<body>
+
+    <header>
+        <div class="left-header">
+            <h1>James Ockenfels</h1>
+        </div>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+        <nav class="right-header">
+            <a href="../../index.html">Home</a>
+            <a href="../projects.html">Projects</a>
+            <a href="../goals.html">Goals</a>
+            <a href="../education.html">Education</a>
+            <a href="../about.html">About Me</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../downloads.html">Downloads</a>
+            <a href="../blog.html" class="active">Blog</a>
+        </nav>
+    </header>
+
+    <script>
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.querySelector(".right-header");
+        toggle.addEventListener("click", () => nav.classList.toggle("active"));
+    </script>
+
+   <main>
+        <div class="post-container">
+
+            <!-- Back link -->
+            <a href="../blog.html" class="back-link">← Back to Blog</a>
+
+            <!-- Post header -->
+            <div class="post-header">
+                <span class="post-date">May 12, 2025</span>
+                <h2 class="post-title">My Scripting Fundamentals Final: A Secure User Manager in Python</h2>
+                <p class="post-subtitle">For my intro Python class final, I built a multi-file CLI app that handles user registration, hashed passwords, CSV import/export, and scans for credential leaks.</p>
+            </div>
+
+            <!-- Hero image -->
+            <div class="post-hero-image">
+                <img src="../../img/blog/Secure-messenger.png" alt="Secure User Manager terminal screenshot" />
+            </div>
+
+            <!-- Post body -->
+            <div class="post-body">
+                <p>
+                    This was the final project for my Scripting Fundamentals class, an intro to Python course. The assignment was open-ended enough that I wanted to build something that actually felt useful rather than just a toy script. I landed on a command-line user management system that ties together a bunch of the things we learned over the semester: working with external libraries, databases, file I/O, and web scraping.
+                </p>
+                <p>
+                    The finished project is split across six files, each handling a different piece of the app. Here's how it all fits together.
+                </p>
+
+                <h3>What It Does</h3>
+                <p>
+                    When you run the app you get a simple numbered menu in the terminal:
+                </p>
+
+<pre><code> Secure User Manager
+1. Register
+2. Login
+3. Export Users
+4. Import Users
+5. Check for Leaks
+6. Exit</code></pre>
+
+                <p>
+                    From there you can register new users with password validation, log in, export the user database to a CSV, import users from a CSV, and run a leak check that scrapes a URL and flags any users whose credentials appear in the results.
+                </p>
+
+                <h3>The File Structure</h3>
+                <p>
+                    I split the project into six files to keep things organized and practice writing modular code, something that got drilled into us throughout the class.
+                </p>
+                <ul>
+                    <li><code>main.py</code> — the entry point, runs the menu loop and ties everything together</li>
+                    <li><code>models.py</code> — defines the database schema using SQLAlchemy</li>
+                    <li><code>db_setup.py</code> — initializes the SQLite database and manages sessions</li>
+                    <li><code>auth.py</code> — handles registration and login with bcrypt password hashing</li>
+                    <li><code>file_io.py</code> — exports and imports users via CSV</li>
+                    <li><code>leak_checker.py</code> — scrapes a URL and checks if any user credentials appear in the results</li>
+                </ul>
+
+                <h3>Password Security with bcrypt</h3>
+                <p>
+                    Passwords are never stored in plain text. Before saving a new user to the database, the app hashes the password using bcrypt, a hashing algorithm designed specifically for passwords that's intentionally slow to make brute-force attacks harder. When someone logs in, bcrypt compares the entered password against the stored hash without ever decrypting it.
+                </p>
+                <p>
+                    On top of that, registration enforces a basic password policy, at least 8 characters, one uppercase letter, and one number:
+                </p>
+
+<pre><code>if len(password) < 8 or not any(c.isupper() for c in password) or not any(c.isdigit() for c in password):
+    print("❌ Password must be 8+ chars, include a number and uppercase letter.")
+    continue</code></pre>
+
+                <h3>The Database Layer</h3>
+                <p>
+                    User data is stored in a local SQLite database using SQLAlchemy. The <code>User</code> model has three fields, username, email, and password hash, each enforced as unique so no duplicate accounts can be created. SQLAlchemy handles all the SQL under the hood, which meant I could focus on the logic rather than writing raw queries.
+                </p>
+
+                <h3>CSV Import and Export</h3>
+                <p>
+                    The app can dump all registered users to a CSV file and read them back in. This was one of the more straightforward parts of the project but also one of the most practical, it shows how you'd back up or migrate user data between environments. The export includes the hashed passwords, so imported users can still log in normally without their original passwords being exposed.
+                </p>
+
+                <h3>The Leak Checker</h3>
+                <p>
+                    This was the part that tied back to the earlier scraping assignment. The leak checker uses <code>requests</code> and BeautifulSoup to fetch a URL, pull all the text from the page, and then scan it for any usernames or email addresses that match registered users. If it finds a match, it flags that account as potentially compromised.
+                </p>
+
+<pre><code>for user in users:
+    if re.search(user.email, text) or re.search(user.username, text):
+        leaked.append(user)</code></pre>
+
+                <p>
+                    In the final version I pointed it at a mock URL for testing, but the idea is that you'd swap in a real paste site or data breach dump to check against. It's a simplified version of how tools like Have I Been Pwned actually work.
+                </p>
+
+                <h3>What I Learned</h3>
+                <p>
+                    This project pulled together pretty much everything from the semester in one place, classes and models, database sessions, file handling, web scraping, and organizing code across multiple files. The part I found most interesting was the security side: learning why you never store plain text passwords and how hashing actually works in practice rather than just in theory.
+                </p>
+                <p>
+                    It's also the first Python project I've built that felt like something resembling a real application rather than a script. Splitting it into modules and having each file do one job made the whole thing a lot easier to debug and build on. That's a habit I want to carry forward.
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>Connect with me:</p>
+        <a href="https://github.com/james-ockenfels" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/james-ockenfels-770811391/" target="_blank">LinkedIn</a>
+        <a href="https://tryhackme.com/p/hackerman102030" target="_blank">TryHackMe</a>
+    </footer>
+
+</body>
+</html>
