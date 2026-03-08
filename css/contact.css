@@ -73,7 +73,7 @@ main .content {
     text-align: center;
     border-radius: 10px;
     width: 100%;
-    max-width: 80%;
+    max-width: 90vw;
     margin: 0 auto;
 }
 /* ========================= */
@@ -169,7 +169,7 @@ footer a:hover {
 /* ========================= */
 /* MOBILE STYLES */
 /* ========================= */
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
 
     header {
         padding: 15px;

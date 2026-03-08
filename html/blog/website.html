@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Ockenfels - Setting Up My Home Lab</title>
+    <link rel="icon" type="image/x-icon" href="../../img/FAVICON.png">
+    <link rel="stylesheet" href="../../css/blog-post.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com" rel="stylesheet">
+
+</head>
+<body>
+
+    <header>
+        <div class="left-header">
+            <h1>James Ockenfels</h1>
+        </div>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+        <nav class="right-header">
+            <a href="../../index.html">Home</a>
+            <a href="../projects.html">Projects</a>
+            <a href="../goals.html">Goals</a>
+            <a href="../education.html">Education</a>
+            <a href="../about.html">About Me</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../downloads.html">Downloads</a>
+            <a href="../blog.html" class="active">Blog</a>
+        </nav>
+    </header>
+
+    <script>
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.querySelector(".right-header");
+        toggle.addEventListener("click", () => nav.classList.toggle("active"));
+    </script>
+
+    <main>
+        <div class="post-container">
+
+            <!-- Back link -->
+            <a href="../blog.html" class="back-link">← Back to Blog</a>
+
+            <!-- Post header -->
+            <div class="post-header">
+                <span class="post-date">November 10, 2024</span>
+                <h2 class="post-title">Building This Website From Scratch</h2>
+                <p class="post-subtitle">How a high school capstone project turned into the portfolio site you're reading this on right now.</p>
+            </div>
+
+            <!-- Hero image -->
+            <div class="post-hero-image">
+                <img src="../../img/blog/website.png" alt="Screenshot of the website" />
+            </div>
+
+            <!-- Post body -->
+            <div class="post-body">
+                <p>
+                    This website started as a capstone project for a web development class I took at Indian Hills Community College (IHCC) during my junior year of high school. The assignment was to build a personal portfolio site from scratch using HTML, CSS, and JavaScript, no templates, no website builders, just code. I ended up getting a 100% on it, which I was pretty happy about. But more than the grade, it was the first real project I built and actually deployed, and that felt like a big deal.
+                </p>
+
+                <h3>Why I Built It</h3>
+                <p>
+                    The short answer is that it was required for class. But honestly, I was already interested in tech and this gave me a reason to sit down and learn how websites actually work under the hood. I'd messed around with code before, but never built something with real pages, real navigation, and a real structure. The capstone pushed me to do that properly, and I found that I genuinely enjoyed it.
+                </p>
+
+                <h3>What I Used</h3>
+                <ul>
+                    <li>HTML & CSS for structure and styling</li>
+                    <li>JavaScript for interactivity (like the mobile hamburger menu)</li>
+                    <li>Visual Studio Code as my code editor</li>
+                    <li>Git and GitHub to version-control and host the project</li>
+                </ul>
+
+                <h3>How I Kept It Updated</h3>
+                <p>
+                    My workflow throughout the project was pretty simple. Whenever I made changes I was happy with, I'd stage everything, write a commit message, and push it up to GitHub:
+                </p>
+
+                <pre><code>git add .
+git commit -m "Updating files"
+git push -u origin main</code></pre>
+
+                <p>
+                    It's not the most descriptive commit history in the world, but it got the job done and kept everything backed up as I went. Using Git from the start was one of the better habits I picked up from this project.
+                </p>
+
+                <h3>What the Original Site Looked Like</h3>
+                <p>
+                    The version I submitted on November 10th, 2024 had the core pages, a home page, an about me section, a projects page, an education page, a goals page, and a contact page. The design used the dark navy and teal color scheme you still see today. That part I was happy with from the start, so it stuck around.
+                </p>
+
+                <h3>How It's Changed Since Then</h3>
+                <p>
+                    After the class ended and the grade was in, I kept coming back to the site and adding things. The original submission didn't have everything I wanted, it was scoped to what I could finish by the deadline. Since then I've added a downloads page where visitors can grab my resume and Google certificates, and most recently a blog (which you're reading right now). Each new page has been a chance to practice and try things I didn't know how to do when I first built the site.
+                </p>
+
+                <h3>What I Took Away From It</h3>
+                <p>
+                    Building this site taught me that the best way to learn web development is to just make something real. Tutorials are fine, but nothing forces you to actually problem-solve like having a project with a deadline and your name on it. I also learned that a site is never really "done", there's always something to improve, add, or rethink. That mindset has stuck with me, and this site is proof of it.
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>Connect with me:</p>
+        <a href="https://github.com/james-ockenfels" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/james-ockenfels-770811391/" target="_blank">LinkedIn</a>
+        <a href="https://tryhackme.com/p/hackerman102030" target="_blank">TryHackMe</a>
+    </footer>
+
+</body>
+</html>

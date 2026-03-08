@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Ockenfels - Blog</title>
+    <link rel="icon" type="image/x-icon" href="../img/FAVICON.png">
+    <link rel="stylesheet" href="../css/blog.css">
+</head>
+<body>
+
+    <header>
+        <div class="left-header">
+            <h1>James Ockenfels</h1>
+        </div>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+        <nav class="right-header">
+            <a href="../index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="goals.html">Goals</a>
+            <a href="education.html">Education</a>
+            <a href="about.html">About Me</a>
+            <a href="contact.html">Contact</a>
+            <a href="downloads.html">Downloads</a>
+            <a href="blog.html" class="active">Blog</a>
+        </nav>
+    </header>
+
+    <script>
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.querySelector(".right-header");
+        toggle.addEventListener("click", () => nav.classList.toggle("active"));
+    </script>
+
+    <main>
+        <div class="blog-hero">
+            <h2>The Blog</h2>
+            <p>Random projects, write-ups, and things I figured out along the way.</p>
+        </div>
+
+        <div class="blog-controls">
+            <input type="text" id="search-input" placeholder="Search posts…" />
+            <select id="sort-select">
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+                <option value="az">A → Z</option>
+                <option value="za">Z → A</option>
+            </select>
+        </div>
+
+        <div class="blog-list" id="blog-list"></div>
+        <p class="no-results" id="no-results" style="display:none;">No posts found.</p>
+    </main>
+
+    <footer>
+        <p>Connect with me:</p>
+        <a href="https://github.com/james-ockenfels" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/james-ockenfels-770811391/" target="_blank">LinkedIn</a>
+        <a href="https://tryhackme.com/p/hackerman102030" target="_blank">TryHackMe</a>
+    </footer>
+
+    <script>
+        // ============================================================
+        // BLOG POSTS CONFIG — add new posts here!
+        // Fields:
+        //   title       — post title
+        //   date        — "YYYY-MM-DD" format (used for sorting)
+        //   description — short summary shown on the hub
+        //   image       — path to thumbnail image (relative to this file)
+        //   url         — path to the blog post HTML file
+        // ============================================================
+        const posts = [
+            {
+                title: "Setting Up My Website",
+                date: "2024-11-10",
+                description: "How i built a website from scratch, the very same you are on now",
+                image: "../img/blog/website.png",
+                url: "blog/website.html"
+            }
+            //these are test ones, havent made these yet
+           // {
+           //    title: "What I Learned From the Google IT Course",
+           //     date: "2025-01-03",
+           //     description: "A quick breakdown of the most useful things I took away from completing the Google IT Support Professional Certificate.",
+           //     image: "../img/blog/google-it.jpg",
+           //     url: "blog/google-it-review.html"
+           // },
+           // {
+           //     title: "My First CTF Write-Up",
+           //     date: "2024-11-20",
+           //    description: "Walking through how I solved my first Capture the Flag challenge on TryHackMe, mistakes and all.",
+           //     image: "../img/blog/ctf.jpg",
+           //     url: "blog/first-ctf.html"
+           // }
+        ];
+        // ============================================================
+        // END CONFIG — no need to edit below this line
+        // ============================================================
+
+        function formatDate(dateStr) {
+            const [y, m, d] = dateStr.split("-");
+            return new Date(y, m - 1, d).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+        }
+
+        function renderPosts(list) {
+            const container = document.getElementById("blog-list");
+            const noResults = document.getElementById("no-results");
+            container.innerHTML = "";
+
+            if (list.length === 0) {
+                noResults.style.display = "block";
+                return;
+            }
+            noResults.style.display = "none";
+
+            list.forEach((post, i) => {
+                const card = document.createElement("article");
+                card.className = "blog-card";
+                card.style.animationDelay = `${i * 0.07}s`;
+                card.innerHTML = `
+                    <a href="${post.url}" class="card-image-link">
+                        <div class="card-image" style="background-image: url('${post.image}')"></div>
+                    </a>
+                    <div class="card-content">
+                        <span class="card-date">${formatDate(post.date)}</span>
+                        <h3 class="card-title"><a href="${post.url}">${post.title}</a></h3>
+                        <p class="card-desc">${post.description}</p>
+                        <a href="${post.url}" class="card-link">Read post →</a>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function getFiltered() {
+            const query = document.getElementById("search-input").value.toLowerCase();
+            const sort = document.getElementById("sort-select").value;
+
+            let filtered = posts.filter(p =>
+                p.title.toLowerCase().includes(query) ||
+                p.description.toLowerCase().includes(query)
+            );
+
+            filtered.sort((a, b) => {
+                if (sort === "newest") return new Date(b.date) - new Date(a.date);
+                if (sort === "oldest") return new Date(a.date) - new Date(b.date);
+                if (sort === "az") return a.title.localeCompare(b.title);
+                if (sort === "za") return b.title.localeCompare(a.title);
+            });
+
+            return filtered;
+        }
+
+        document.getElementById("search-input").addEventListener("input", () => renderPosts(getFiltered()));
+        document.getElementById("sort-select").addEventListener("change", () => renderPosts(getFiltered()));
+
+        renderPosts(getFiltered());
+    </script>
+</body>
+</html>
