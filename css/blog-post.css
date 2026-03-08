@@ -79,7 +79,7 @@ main {
     background: white;
     border-radius: 16px;
     box-shadow: 0 8px 40px rgba(31,40,51,0.12);
-    max-width: 760px;
+    max-width: 70vw;
     width: 100%;
     overflow: hidden;
     animation: fadeIn 0.4s ease both;
@@ -136,14 +136,17 @@ main {
 
 /* Hero image */
 .post-hero-image {
-    width: 100%;
+    width: 50%;
     background-color: #1f2833;
+    margin: auto;
+    
 }
 
 .post-hero-image img {
     width: 100%;
     height: auto;
     display: block;
+    
 }
 
 /* ========================= */
@@ -292,5 +295,19 @@ footer a:hover { color: #45a29e; }
     }
 
     .post-title { font-size: 1.7rem; }
+
+    .post-hero-image {
+    width: 100%;
+    background-color: #1f2833;
+    margin: auto;
+    
+}
+
+.post-hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    
+}
 
 }
