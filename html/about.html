@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>James Ockenfels - About Me</title>
-      <link rel="icon" type="image/x-icon" href="../img/FAVICON.png">
-
+    <link rel="icon" type="image/x-icon" href="../img/FAVICON.png">
     <link rel="stylesheet" href="../css/about.css">
 </head>
 <body>
@@ -22,33 +21,93 @@
             <a href="about.html">About Me</a>
             <a href="contact.html">Contact</a>
             <a href="downloads.html">Downloads</a>
-            <a href="blog.html" class="active">Blog</a>
+            <a href="blog.html">Blog</a>
         </nav>
     </header>
     <script>
-const toggle = document.getElementById("menu-toggle");
-const nav = document.querySelector(".right-header");
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.querySelector(".right-header");
+        toggle.addEventListener("click", () => nav.classList.toggle("active"));
+    </script>
 
-toggle.addEventListener("click", () => {
-    nav.classList.toggle("active");
-});
-</script>
+    <main>
+        <div class="content">
+            <h2>About Me</h2>
 
-<main>
-    <div class="content">
-        <h2>About Me</h2>
-        <p>Hello! I’m James Ockenfels, an aspiring IT and cybersecurity professional currently completing my Associate degree in Cybersecurity and Systems Administration while finishing my senior year of high school.</p>
-<br>
-        <p>I hold both the Google IT Support and Google Cybersecurity certifications and currently work as an IT intern, where I troubleshoot hardware, repair Chromebooks, assist with network infrastructure, and support day-to-day technical operations. I’m passionate about systems, networking, security, and building projects that challenge me to grow.</p>
-<br>
-        <p>Outside of school and work, I enjoy developing web projects, experimenting with new technologies, and sharpening my skills through hands-on labs and cybersecurity platforms. My goal is to continue growing in the IT field and build a strong foundation in cybersecurity and infrastructure.</p>
-    </div>
-</main>
-    
+            <!-- Highlight cards -->
+            <div class="highlights">
+
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <div class="highlight-text">
+                        <span class="highlight-label">Current Focus</span>
+                        <span class="highlight-value">Cybersecurity & Systems Admin</span>
+                    </div>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                        </svg>
+                    </div>
+                    <div class="highlight-text">
+                        <span class="highlight-label">Status</span>
+                        <span class="highlight-value">IT Intern + Senior in High School</span>
+                    </div>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="8" r="6"/>
+                            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+                        </svg>
+                    </div>
+                    <div class="highlight-text">
+                        <span class="highlight-label">Certifications</span>
+                        <span class="highlight-value">Google IT Support &amp; Cybersecurity</span>
+                    </div>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                        </svg>
+                    </div>
+                    <div class="highlight-text">
+                        <span class="highlight-label">Studying At</span>
+                        <span class="highlight-value">Indian Hills Community College</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bio text -->
+            <div class="bio">
+                <p>Hey, I'm James, an aspiring IT and cybersecurity professional based in Ottumwa, Iowa. I'm currently finishing my senior year of high school while simultaneously completing an Associate degree in Cybersecurity and Systems Administration at Indian Hills Community College.</p>
+
+                <p>I work as an IT intern, where day-to-day I troubleshoot hardware, repair Chromebooks, assist with network infrastructure, and keep technical operations running smoothly. It's given me real hands-on experience that's hard to get any other way.</p>
+
+                <p>Outside of school and work, I spend a lot of time on personal projects, building hardware like my ESP32-based Flipper Zero clone, writing Python scripts, making games in Unity, and documenting everything on this site's blog. I got into tech because I genuinely enjoy figuring out how things work, and that curiosity hasn't slowed down.</p>
+
+                <p>My goal is to keep growing in the IT field, earn my CompTIA certifications, and eventually work full-time in cybersecurity or systems administration.</p>
+            </div>
+
+        </div>
+    </main>
+
     <footer>
         <p>Connect with me:</p>
         <a href="https://github.com/james-ockenfels" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/james-ockenfels-770811391/" target="_blank">linkedin</a>
+        <a href="https://www.linkedin.com/in/james-ockenfels-770811391/" target="_blank">LinkedIn</a>
         <a href="https://tryhackme.com/p/hackerman102030" target="_blank">TryHackMe</a>
     </footer>
 </body>

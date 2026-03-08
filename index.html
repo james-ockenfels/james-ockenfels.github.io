@@ -5,24 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>James Ockenfels - Portfolio</title>
     <link rel="stylesheet" href="css/index.css">
-      <link rel="icon" type="image/x-icon" href="img/FAVICON.png">
-<meta name="description" content="Official website of James Ockenfels. Projects, cybersecurity work, IT experience, and more.">
-<meta name="keywords" content="James Ockenfels, cybersecurity, IT support, student, projects">
-<meta name="author" content="James Ockenfels">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/FAVICON.png">
+    <meta name="description" content="Official website of James Ockenfels. Projects, cybersecurity work, IT experience, and more.">
+    <meta name="keywords" content="James Ockenfels, cybersecurity, IT support, student, projects">
+    <meta name="author" content="James Ockenfels">
 </head>
 <body>
-<header>
-    <div class="left-header">
-        <h1>James Ockenfels</h1>
-    </div>
-
-    <div class="menu-toggle" id="menu-toggle">
-        ☰
-    </div>
-
-    <nav class="right-header" id="nav-menu">
-        <a href="index.html">Home</a>
+    <header>
+        <div class="left-header">
+            <h1>James Ockenfels</h1>
+        </div>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+        <nav class="right-header" id="nav-menu">
+            <a href="index.html">Home</a>
             <a href="html/projects.html">Projects</a>
             <a href="html/goals.html">Goals</a>
             <a href="html/education.html">Education</a>
@@ -30,93 +25,175 @@
             <a href="html/contact.html">Contact</a>
             <a href="html/downloads.html">Downloads</a>
             <a href="html/blog.html">Blog</a>
-    </nav>
-</header>
-<script>
-const toggle = document.getElementById("menu-toggle");
-const nav = document.querySelector(".right-header");
+        </nav>
+    </header>
+    <script>
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.querySelector(".right-header");
+        toggle.addEventListener("click", () => nav.classList.toggle("active"));
+    </script>
 
-toggle.addEventListener("click", () => {
-    nav.classList.toggle("active");
-});
-</script>
     <main>
-    <div class="content">
-            <h1>Welcome to My Portfolio</h1>
-            <h3>here's my latest accomplishment:</h3>
-            <img src="img/GoogleCyberSecuirty.png" alt="Portfolio sample image" width="90%" style="padding: 5px; border-radius: 10px; border-color: black; border-style: dashed; border-width: 2px;">
-            <br></br>
-            
-            <h2>Some Of My Skills:</h2>
 
-        <div class="bubble-container">
-            <div class="bubble">
-                <h3>IT & Networking</h3>
-                <ul>
-                    <li>Network troubleshooting</li>
-                    <li>Router & switch configuration</li>
-                    <li>DHCP / DNS basics</li>
-                    <li>IP camera systems</li>
-                </ul>
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-text">
+                <p class="hero-eyebrow">Hey, I'm</p>
+                <h1 class="hero-name">James Ockenfels</h1>
+                <p class="hero-tagline">Aspiring cybersecurity professional, IT intern, and builder of things, from web apps to hardware projects.</p>
+                <div class="hero-links">
+                    <a href="html/projects.html" class="hero-btn">View Projects</a>
+                    <a href="html/about.html" class="hero-btn hero-btn--outline">About Me</a>
+                </div>
             </div>
-            <div class="bubble">
-                <h3>Cybersecurity</h3>
-                <ul>
-                    <li>Security fundamentals</li>
-                    <li>Threat analysis basics</li>
-                    <li>TryHackMe labs</li>
-                    <li>Linux security tools</li>
-                </ul>
+            <div class="hero-badges">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    IT Intern · Senior at OHS · IHCC Student
+                </div>
             </div>
-            <div class="bubble">
-                <h3>Programming</h3>
-                <ul>
-                    <li>HTML / CSS / JavaScript</li>
-                    <li>Python basics</li>
-                    <li>Game development</li>
-                    <li>Git / GitHub</li>
-                </ul>
-            </div>
-            <div class="bubble">
-                <h3>Virtualization</h3>
-                <ul>
-                    <li>Virtual machine deployment</li>
-                    <li>Snapshot management</li>
-                    <li>Virtual networking configuration</li>
-                    <li>Hypervisor fundamentals</li>
-                </ul>
-            </div>
-            <div class="bubble">
-                <h3>Hardware & Systems</h3>
-                <ul style="list-style-position: inside;">
-                    <li>PC assembly & upgrades</li>
-                    <li>Hardware diagnostics</li>
-                    <li>Storage devices & configuration</li>
-                    <li>Peripheral setup</li>
-                </ul>
-            </div>
-            <div class="bubble">
-                <h3>IT Support</h3>
-                <ul style="list-style-position: inside;">
-                    <li>Technical troubleshooting</li>
-                    <li>Software installation</li>
-                    <li>Device configuration</li>
-                    <li>Basic user support</li>
-                </ul>
-            </div>
-            
-            
         </div>
 
+        <!-- Skills Section -->
+        <div class="section">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
 
-    </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/>
+                            <line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>
+                        </svg>
+                    </div>
+                    <div class="skill-body">
+                        <h3>IT &amp; Networking</h3>
+                        <ul>
+                            <li>Network troubleshooting</li>
+                            <li>Router &amp; switch configuration</li>
+                            <li>DHCP / DNS basics</li>
+                            <li>IP camera systems</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <div class="skill-body">
+                        <h3>Cybersecurity</h3>
+                        <ul>
+                            <li>Security fundamentals</li>
+                            <li>Threat analysis basics</li>
+                            <li>TryHackMe labs</li>
+                            <li>Linux security tools</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                    </div>
+                    <div class="skill-body">
+                        <h3>Programming</h3>
+                        <ul>
+                            <li>HTML / CSS / JavaScript</li>
+                            <li>Python</li>
+                            <li>Game development (Unity)</li>
+                            <li>Git / GitHub</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <div class="skill-body">
+                        <h3>Virtualization</h3>
+                        <ul>
+                            <li>VM deployment</li>
+                            <li>Snapshot management</li>
+                            <li>Virtual networking</li>
+                            <li>Hypervisor fundamentals</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="4" width="16" height="16" rx="2"/>
+                            <rect x="9" y="9" width="6" height="6"/>
+                            <line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/>
+                            <line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/>
+                            <line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/>
+                            <line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/>
+                        </svg>
+                    </div>
+                    <div class="skill-body">
+                        <h3>Hardware &amp; Systems</h3>
+                        <ul>
+                            <li>PC assembly &amp; upgrades</li>
+                            <li>Hardware diagnostics</li>
+                            <li>Storage configuration</li>
+                            <li>Peripheral setup</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <div class="skill-body">
+                        <h3>IT Support</h3>
+                        <ul>
+                            <li>Technical troubleshooting</li>
+                            <li>Software installation</li>
+                            <li>Device configuration</li>
+                            <li>User support</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Recent Accomplishment -->
+        <div class="section">
+            <h2 class="section-title">Recent Accomplishment</h2>
+            <div class="cert-card">
+                <div class="cert-img-wrap">
+                    <img src="img/GoogleCyberSecuirty.png" alt="Google Cybersecurity Certificate" />
+                </div>
+                <div class="cert-info">
+                    <span class="cert-badge">Certificate</span>
+                    <h3>Google Cybersecurity Certificate</h3>
+                    <p>Completed Google's professional cybersecurity certificate, covering threat analysis, network security, Linux, Python for security, and more.</p>
+                    <a href="html/downloads.html" class="hero-btn" style="margin-top: 14px; display: inline-block;">Download Certificate</a>
+                </div>
+            </div>
+        </div>
+
     </main>
-    
+
     <footer>
         <p>Connect with me:</p>
-        <a href="https://github.com">GitHub</a>
-        <a href="https://youtube.com">YouTube</a>
-        <a href="https://tryhackme.com">TryHackMe</a>
+        <a href="https://github.com/hackerman103020" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/james-ockenfels-770811391/" target="_blank">LinkedIn</a>
+        <a href="https://tryhackme.com/p/hackerman102030" target="_blank">TryHackMe</a>
     </footer>
 </body>
 </html>

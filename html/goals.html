@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>James Ockenfels - Goals</title>
-      <link rel="icon" type="image/x-icon" href="../img/FAVICON.png">
-
+    <link rel="icon" type="image/x-icon" href="../img/FAVICON.png">
     <link rel="stylesheet" href="../css/goals.css">
 </head>
 <body>
@@ -13,46 +12,117 @@
     <div class="left-header">
         <h1>James Ockenfels</h1>
     </div>
-
     <div class="menu-toggle" id="menu-toggle">☰</div>
-
-   <nav class="right-header">
-            <a href="../index.html">Home</a>
-            <a href="projects.html">Projects</a>
-            <a href="goals.html">Goals</a>
-            <a href="education.html">Education</a>
-            <a href="about.html">About Me</a>
-            <a href="contact.html">Contact</a>
-            <a href="downloads.html">Downloads</a>
-            <a href="blog.html" class="active">Blog</a>
-        </nav>
+    <nav class="right-header">
+        <a href="../index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="goals.html">Goals</a>
+        <a href="education.html">Education</a>
+        <a href="about.html">About Me</a>
+        <a href="contact.html">Contact</a>
+        <a href="downloads.html">Downloads</a>
+        <a href="blog.html">Blog</a>
+    </nav>
 </header>
 <script>
 const toggle = document.getElementById("menu-toggle");
 const nav = document.querySelector(".right-header");
-
-toggle.addEventListener("click", () => {
-    nav.classList.toggle("active");
-});
+toggle.addEventListener("click", () => nav.classList.toggle("active"));
 </script>
 
-    <main>
-        <div class="content">
-            <h2>Goals</h2>
-            <p>Here are some of my personal and professional goals:</p>
-            <ul>
-                <li>Become proficient in Cyber Security</li>
-                <li>Develop my own games using unity game engine.</li>
-                <li>Gain certifications in cybersecurity through platforms like TryHackMe.</li>
-            </ul>
+<main>
+    <div class="content">
+        <h2>Goals</h2>
+        <p class="subtitle">Where I'm headed, personally and professionally.</p>
+
+        <div class="goals-grid">
+
+            <div class="goal-card">
+                <div class="goal-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <div class="goal-body">
+                    <h3>Become Proficient in Cybersecurity</h3>
+                    <p>Build deep, practical knowledge in cybersecurity, from networking fundamentals to offensive and defensive techniques.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <div class="goal-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="8" r="6"/>
+                        <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+                    </svg>
+                </div>
+                <div class="goal-body">
+                    <h3>Earn CompTIA Certifications</h3>
+                    <p>Work through the CompTIA certification track, A+, Network+, and Security+ to build a solid, vendor-neutral foundation in IT and cybersecurity.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <div class="goal-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <polyline points="9 12 11 14 15 10"/>
+                    </svg>
+                </div>
+                <div class="goal-body">
+                    <h3>Gain Certifications via TryHackMe</h3>
+                    <p>Continue working through TryHackMe paths and earning certifications that demonstrate hands-on skills in real-world cybersecurity scenarios.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <div class="goal-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                    </svg>
+                </div>
+                <div class="goal-body">
+                    <h3>Graduate From Indian Hills</h3>
+                    <p>Complete my degree in Cybersecurity and Systems Administration at Indian Hills Community College.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <div class="goal-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                    </svg>
+                </div>
+                <div class="goal-body">
+                    <h3>Land a Job or Internship in Tech</h3>
+                    <p>Get my foot in the door with a role in IT or cybersecurity, whether that's an internship while I'm still in school or a full-time position after graduating.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <div class="goal-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2"/>
+                        <polygon points="8 21 12 17 16 21"/>
+                    </svg>
+                </div>
+                <div class="goal-body">
+                    <h3>Develop Games in Unity</h3>
+                    <p>Learn the Unity game engine and develop my own games, combining a love of gaming with the programming skills I've been building.</p>
+                </div>
+            </div>
+
         </div>
-    </main>
-    
-    <footer>
-        <p>Connect with me:</p>
-        <a href="https://github.com/james-ockenfels" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/james-ockenfels-770811391/" target="_blank">linkedin</a>
-        <a href="https://tryhackme.com/p/hackerman102030" target="_blank">TryHackMe</a>
-    </footer>
+    </div>
+</main>
+
+<footer>
+    <p>Connect with me:</p>
+    <a href="https://github.com/james-ockenfels" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/james-ockenfels-770811391/" target="_blank">LinkedIn</a>
+    <a href="https://tryhackme.com/p/hackerman102030" target="_blank">TryHackMe</a>
+</footer>
 </body>
 </html>

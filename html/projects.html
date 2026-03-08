@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>James Ockenfels - Projects</title>
-      <link rel="icon" type="image/x-icon" href="../img/FAVICON.png">
-
+    <link rel="icon" type="image/x-icon" href="../img/FAVICON.png">
     <link rel="stylesheet" href="../css/projects.css">
 </head>
 <body>
@@ -22,83 +21,194 @@
             <a href="about.html">About Me</a>
             <a href="contact.html">Contact</a>
             <a href="downloads.html">Downloads</a>
-            <a href="blog.html" class="active">Blog</a>
+            <a href="blog.html">Blog</a>
         </nav>
     </header>
     <script>
-const toggle = document.getElementById("menu-toggle");
-const nav = document.querySelector(".right-header");
-
-toggle.addEventListener("click", () => {
-    nav.classList.toggle("active");
-});
-</script>
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.querySelector(".right-header");
+        toggle.addEventListener("click", () => nav.classList.toggle("active"));
+    </script>
 
     <main>
+        <!-- Text summary at top -->
         <div class="content">
             <h2>Projects</h2>
-            <p>Here are some of the exciting projects I've worked on:</p>
-            <ul>
-                <li><strong>Survillance Shift:</strong> A game project using Unity, <a href="https://lipnodexstudio.itch.io/surveillance-shift" target="_blank">link</a> also avialable via the link below</li>
-                <li><strong>Personal Portfolio Website:</strong> This website you're viewing, built to showcase my skills and work.</li>
-                <li><strong>Esp-32 Ir Transmitter:</strong> a esp-32 based system, that uses Flipper-IRDB, can send IR signals, working on IR reciver!</li>
-                <li><strong>CC1101 transceiver:</strong> a 433 mhz attena that can read raw data, send it, and more!</li>
+            <p class="subtitle">Here's a quick overview of what I've been working on:</p>
+            <ul class="project-list">
+                <li><strong>Surveillance Shift</strong> — My biggest Unity game, took around 3 months, fully finished and launched on itch.io.</li>
+                <li><strong>Personal Portfolio Website</strong> — The site you're on right now, originally built as a capstone for a web dev class at IHCC.</li>
+                <li><strong>Flipper-32</strong> — A Flipper Zero-inspired IR transmitter built on an ESP32 with an OLED display and MicroSD storage.</li>
+                <li><strong>Web Scraping Bots</strong> — A pair of Python scrapers built for class: one that gets caught, one that doesn't.</li>
+                <li><strong>Blog</strong> — Where I write up projects, assignments, and things I've figured out. Check it out below or in the nav.</li>
             </ul>
         </div>
 
+        <!-- Games section -->
+        <div class="section-heading">
+            <h3>🎮 Games</h3>
+        </div>
         <div class="bubble-container">
-            <div class="bubble">
-                <a href="ResSqaure/index.html">
-                    <img src="../img/ResSqaure.png" alt="Image 1">
-                </a>
-                <h3>ResSqaure</h3>
-                <p>This is my first ever game! not that good, taught me the basics of unity and c# tho! </p>
-            </div>
-            
 
             <div class="bubble">
                 <a href="SurveillanceShift/index.html">
-                    <img src="../img/SurveillanceShift.png" alt="Image 2">
+                    <img src="../img/SurveillanceShift.png" alt="Surveillance Shift">
                 </a>
-                <h3>Surveillance Shift</h3>
-                <p><b>NOW WORKS!</b></p>
-                <p>My first big game, took around 3 months to finish. a fully playable and finished game, launched on itch.io   <sub><a href="https://lipnodexstudio.itch.io/surveillance-shift" target="_blank">(Link)</a></sub></p>
+                <div class="bubble-body">
+                    <h3>Surveillance Shift</h3>
+                    <p>My first big game, fully playable and finished, took around 3 months. Launched on itch.io.</p>
+                    <div class="bubble-links">
+                        <a href="SurveillanceShift/index.html" class="bubble-btn">Play</a>
+                        <a href="https://lipnodexstudio.itch.io/surveillance-shift" target="_blank" class="bubble-btn bubble-btn--outline">itch.io</a>
+                    </div>
+                </div>
             </div>
 
             <div class="bubble">
                 <a href="GamersGame/index.html">
-                    <img src="../img/GamersGame.png" alt="Image 3">
+                    <img src="../img/GamersGame.png" alt="Gamers Game">
                 </a>
-                <h3>Gamers Game</h3>
-                <p>This game is a game full of games, the ideal is that since some people have good game ideals, and some bad, it should average out to be a good game! only packaged together on my site, separate pages on itch.io </p>            </div>
+                <div class="bubble-body">
+                    <h3>Gamers Game</h3>
+                    <p>A collection of games, the idea being that averaging good and bad game ideas together makes something worth playing.</p>
+                    <div class="bubble-links">
+                        <a href="GamersGame/index.html" class="bubble-btn">Play</a>
+                    </div>
+                </div>
+            </div>
+
             <div class="bubble">
                 <a href="DrakeGame/index.html">
-                    <img src="../img/Backrooms.png" alt="Image 3">
+                    <img src="../img/Backrooms.png" alt="Backrooms">
                 </a>
-                <h3>Backrooms</h3>
-                <p>This is a backrooms generation game i made. i want to extend this to a full game, but for now you can play around in this version</p>
+                <div class="bubble-body">
+                    <h3>Backrooms</h3>
+                    <p>A backrooms generation game. I want to extend this into a full game eventually, for now you can explore this version.</p>
+                    <div class="bubble-links">
+                        <a href="DrakeGame/index.html" class="bubble-btn">Play</a>
+                    </div>
+                </div>
             </div>
+
             <div class="bubble">
                 <a href="FPS-game/index.html">
-                    <img src="../img/FPS-game.png" alt="Image 3">
+                    <img src="../img/FPS-game.png" alt="FPS Demo">
                 </a>
-                <h3>Fps demo</h3>
-                <p>This is a demo for a fps game i want to make. i plan to keep is short and sweet, and not expand it that big.</p>            </div>
+                <div class="bubble-body">
+                    <h3>FPS Demo</h3>
+                    <p>A demo for an FPS game I want to make. Planning to keep it short and focused rather than expand it too big.</p>
+                    <div class="bubble-links">
+                        <a href="FPS-game/index.html" class="bubble-btn">Play</a>
+                    </div>
+                </div>
+            </div>
 
-        <div class="bubble">
-        <a href="Sones-Tycoon/index.html">
-            <img src="../img/Sones-Tycoon.png" alt="WW1 Tycoon">
-        </a>
-        <h3>WW1 Tycoon</h3>
-        <p>This is a tycoon game made in 12 hours I made instead of writing an essay.</p>
-    </div>
-    </div>
+            <div class="bubble">
+                <a href="Sones-Tycoon/index.html">
+                    <img src="../img/Sones-Tycoon.png" alt="WW1 Tycoon">
+                </a>
+                <div class="bubble-body">
+                    <h3>WW1 Tycoon</h3>
+                    <p>A tycoon game I made in 12 hours instead of writing an essay. Priorities.</p>
+                    <div class="bubble-links">
+                        <a href="Sones-Tycoon/index.html" class="bubble-btn">Play</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bubble">
+                <a href="ResSqaure/index.html">
+                    <img src="../img/ResSqaure.png" alt="ResSqaure">
+                </a>
+                <div class="bubble-body">
+                    <h3>ResSqaure</h3>
+                    <p>My very first game. Not polished, but it taught me the basics of Unity and C#.</p>
+                    <div class="bubble-links">
+                        <a href="ResSqaure/index.html" class="bubble-btn">Play</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Other projects section -->
+        <div class="section-heading">
+            <h3>🔧 Other Projects</h3>
+        </div>
+        <div class="bubble-container">
+
+            <div class="bubble">
+                <div class="bubble-icon-hero">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="5" y="2" width="14" height="20" rx="2"/>
+                        <line x1="12" y1="18" x2="12" y2="18.01"/>
+                    </svg>
+                </div>
+                <div class="bubble-body">
+                    <h3>Flipper-32</h3>
+                    <p>A Flipper Zero-inspired device built on an ESP32. Supports IR capture and transmit across a range of protocols, with an OLED display and MicroSD storage.</p>
+                    <div class="bubble-links">
+                        <a href="https://github.com/hackerman103020/Flipper-32" target="_blank" class="bubble-btn">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bubble">
+                <div class="bubble-icon-hero">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"/>
+                        <polyline points="8 6 2 12 8 18"/>
+                    </svg>
+                </div>
+                <div class="bubble-body">
+                    <h3>Web Scraping Bots</h3>
+                    <p>Two Python scrapers built for a scripting class, a naive bot that gets blocked immediately, and a Selenium-based stealth version that bypasses detection on Amazon, DoorDash, and Ticketmaster.</p>
+                    <div class="bubble-links">
+                        <a href="blog/Website-scraper.html" class="bubble-btn">Read Post</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bubble">
+                <div class="bubble-icon-hero">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 20h9"/>
+                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                    </svg>
+                </div>
+                <div class="bubble-body">
+                    <h3>This Website</h3>
+                    <p>Built from scratch for a web dev capstone at IHCC, scored 100%, and has been growing ever since. New pages, new features, ongoing.</p>
+                    <div class="bubble-links">
+                        <a href="blog/website.html" class="bubble-btn">Read Post</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bubble">
+                <div class="bubble-icon-hero">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                        <path d="M9 15l10-10"/>
+                        <path d="M15 3h6v6"/>
+                    </svg>
+                </div>
+                <div class="bubble-body">
+                    <h3>Blog</h3>
+                    <p>Where I write up projects, class assignments, and things I've built or figured out. It's basically the living version of this projects page.</p>
+                    <div class="bubble-links">
+                        <a href="blog.html" class="bubble-btn">Visit Blog</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </main>
 
     <footer>
         <p>Connect with me:</p>
         <a href="https://github.com/james-ockenfels" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/james-ockenfels-770811391/" target="_blank">linkedin</a>
+        <a href="https://www.linkedin.com/in/james-ockenfels-770811391/" target="_blank">LinkedIn</a>
         <a href="https://tryhackme.com/p/hackerman102030" target="_blank">TryHackMe</a>
     </footer>
 </body>

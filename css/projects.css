@@ -9,9 +9,14 @@
 
 html, body {
     font-family: 'Roboto', sans-serif;
-        background: linear-gradient(135deg, #e0eafc, #cfdef3);
-
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
     color: #333;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* ========================= */
@@ -49,7 +54,6 @@ header h1 {
     color: #45a29e;
 }
 
-/* Hamburger */
 .menu-toggle {
     display: none;
     font-size: 2rem;
@@ -58,15 +62,20 @@ header h1 {
 }
 
 /* ========================= */
-/* MAIN CONTENT */
+/* MAIN */
 /* ========================= */
 main {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 40px 20px 60px;
+    gap: 0;
 }
 
+/* ========================= */
+/* SUMMARY CARD */
+/* ========================= */
 .content {
     background-color: white;
     padding: 40px;
@@ -74,74 +83,179 @@ main {
     text-align: center;
     border-radius: 10px;
     width: 95%;
-    max-width: 90vw;
+    max-width: 900px;
     margin-bottom: 40px;
 }
 
-main h2 {
+.content h2 {
     font-size: 2.5rem;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     color: #1f2833;
 }
 
-main ul {
-    list-style: none;
+.content .subtitle {
+    font-size: 1.05rem;
+    color: #666;
+    margin-bottom: 24px;
 }
 
-main ul li {
-    background-color: #f0f0f0;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    font-size: 1.1rem;
+.project-list {
+    list-style: none;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.project-list li {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 0.97rem;
+    color: #444;
+    line-height: 1.5;
+    transition: border-color 0.2s ease;
+}
+
+.project-list li:hover {
+    border-color: #66fcf1;
+}
+
+.project-list li strong {
+    color: #1f2833;
+}
+
+/* ========================= */
+/* SECTION HEADINGS */
+/* ========================= */
+.section-heading {
+    width: 95%;
+    max-width: 900px;
+    text-align: left;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.section-heading h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1f2833;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e2e8f0;
 }
 
 /* ========================= */
 /* BUBBLE GRID */
 /* ========================= */
 .bubble-container {
-    display: flex;
-    flex-wrap: wrap;        /* allows new rows if needed */
-    justify-content: center; /* center bubbles in each row */
-    gap: 20px;
-    margin-top: 40px;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 95%;
+    max-width: 900px;
+    margin-bottom: 40px;
 }
 
 .bubble {
-    flex: 1 1 30%; /* grow, shrink, basis */
-    max-width: 30%; /* prevents bubble from stretching too much */
     background-color: #ffffff;
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.15);
-    text-align: center;
-    transition: transform 0.3s ease;
-    min-width: 250px; /* keeps bubbles from getting too narrow */
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .bubble:hover {
-    transform: scale(1.05);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(31, 40, 51, 0.13);
+    border-color: #66fcf1;
 }
 
-.bubble img {
+/* Game image */
+.bubble > a:first-child img {
     width: 100%;
-    height: auto;
-    border-radius: 15px;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid #e2e8f0;
 }
 
-.bubble h3 {
-    font-size: 1.6rem;
-    margin-top: 10px;
-    font-weight: bold;
+/* Icon hero for non-game cards */
+.bubble-icon-hero {
+    width: 100%;
+    height: 120px;
+    background-color: #1f2833;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #e2e8f0;
+    color: #66fcf1;
+}
+
+.bubble-icon-hero svg {
+    width: 52px;
+    height: 52px;
+}
+
+/* Card body */
+.bubble-body {
+    padding: 18px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.bubble-body h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
     color: #1f2833;
 }
 
-.bubble p {
-    font-size: 1.1rem;
-    color: #444;
+.bubble-body p {
+    font-size: 0.87rem;
+    color: #555;
+    line-height: 1.6;
+    flex: 1;
+}
+
+/* Links row */
+.bubble-links {
+    display: flex;
+    gap: 8px;
     margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.bubble-btn {
+    display: inline-block;
+    padding: 7px 14px;
+    background-color: #1f2833;
+    color: #66fcf1;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.bubble-btn:hover {
+    background-color: #45a29e;
+    color: #1f2833;
+}
+
+.bubble-btn--outline {
+    background-color: transparent;
+    color: #1f2833;
+    border: 1.5px solid #1f2833;
+}
+
+.bubble-btn--outline:hover {
+    background-color: #1f2833;
+    color: #66fcf1;
 }
 
 /* ========================= */
@@ -158,9 +272,7 @@ footer {
     gap: 15px;
 }
 
-footer p {
-    margin: 0;
-}
+footer p { margin: 0; }
 
 footer a {
     color: #66fcf1;
@@ -168,24 +280,15 @@ footer a {
     transition: color 0.3s ease;
 }
 
-footer a:hover {
-    color: #45a29e;
-}
+footer a:hover { color: #45a29e; }
 
 /* ========================= */
-/* MOBILE STYLES */
+/* MOBILE */
 /* ========================= */
 @media (max-width: 1000px) {
+    header { padding: 15px; }
 
-
-
-    header {
-        padding: 15px;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
+    .menu-toggle { display: block; }
 
     .right-header {
         width: 100%;
@@ -209,14 +312,16 @@ footer a:hover {
         font-size: 1rem;
     }
 
-    .content {
-        padding: 20px;
-    }
+    .content { padding: 24px 18px; }
 
-    main h2 {
-        font-size: 1.8rem;
-    }
+    .content h2 { font-size: 1.8rem; }
 
+    .bubble-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 550px) {
     .bubble-container {
         grid-template-columns: 1fr;
     }

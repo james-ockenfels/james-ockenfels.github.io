@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>James Ockenfels - Education</title>
-      <link rel="icon" type="image/x-icon" href="../img/FAVICON.png">
-
+    <link rel="icon" type="image/x-icon" href="../img/FAVICON.png">
     <link rel="stylesheet" href="../css/education.css">
 </head>
 <body>
@@ -22,59 +21,92 @@
             <a href="about.html">About Me</a>
             <a href="contact.html">Contact</a>
             <a href="downloads.html">Downloads</a>
-            <a href="blog.html" class="active">Blog</a>
+            <a href="blog.html">Blog</a>
         </nav>
     </header>
     <script>
-const toggle = document.getElementById("menu-toggle");
-const nav = document.querySelector(".right-header");
-
-toggle.addEventListener("click", () => {
-    nav.classList.toggle("active");
-});
-</script>
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.querySelector(".right-header");
+        toggle.addEventListener("click", () => nav.classList.toggle("active"));
+    </script>
 
     <main>
         <div class="content">
             <h2>Education</h2>
-            <p>Here is my educational background:</p>
-            <!-- Table for education details -->
-            <table>
-                <thead>
-                    <tr>
-                        <th>Degree/Certification</th>
-                        <th>Institution</th>
-                        <th>Year</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>AA in Cybersecurity</td>
-                        <td>IHCC</td>
-                        <td>2024 - Present</td>
-                    </tr>
-                    <tr>
-                        <td>Cybersecurity Certification</td>
-                        <td>TryHackMe</td>
-                        <td>2023</td>
-                    </tr>
-                    <tr>
-                        <td>High School</td>
-                        <td>Ottumwa High School</td>
-                        <td>2022 - 2026</td>
-                    </tr>
-                </tbody>AC
-            </table>
-            <div class="image-row">
-    <img src="../img/GoogleIT.png" alt="Google IT Cert">
-    <img src="../img/GoogleCyberSecuirty.png" alt="Google Cyber Cert">
-</div> </div>
+            <p class="subtitle">My academic background and certifications.</p>
+
+            <!-- Education Cards -->
+            <div class="edu-grid">
+
+                <div class="edu-card">
+                    <div class="edu-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                        </svg>
+                    </div>
+                    <div class="edu-body">
+                        <span class="edu-badge">In Progress</span>
+                        <h3>AA in Cybersecurity &amp; Systems Administration</h3>
+                        <p class="edu-institution">Indian Hills Community College</p>
+                        <p class="edu-date">2024 — Present</p>
+                    </div>
+                </div>
+
+                <div class="edu-card">
+                    <div class="edu-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2"/>
+                            <path d="M8 21h8M12 17v4"/>
+                        </svg>
+                    </div>
+                    <div class="edu-body">
+                        <span class="edu-badge edu-badge--progress">In Progress</span>
+                        <h3>High School Diploma</h3>
+                        <p class="edu-institution">Ottumwa High School</p>
+                        <p class="edu-date">2022 — 2026</p>
+                    </div>
+                </div>
+
+                <div class="edu-card">
+                    <div class="edu-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <polyline points="9 12 11 14 15 10"/>
+                        </svg>
+                    </div>
+                    <div class="edu-body">
+                        <span class="edu-badge edu-badge--done">Completed</span>
+                        <h3>Cybersecurity Certification</h3>
+                        <p class="edu-institution">TryHackMe</p>
+                        <p class="edu-date">2023</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Certificates Section -->
+            <div class="certs-section">
+                <h3 class="certs-heading">Google Certificates</h3>
+                <div class="certs-grid">
+                    <div class="cert-item">
+                        <img src="../img/GoogleIT.png" alt="Google IT Support Certificate" />
+                        <p>Google IT Support</p>
+                    </div>
+                    <div class="cert-item">
+                        <img src="../img/GoogleCyberSecuirty.png" alt="Google Cybersecurity Certificate" />
+                        <p>Google Cybersecurity</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </main>
-    
+
     <footer>
         <p>Connect with me:</p>
         <a href="https://github.com/james-ockenfels" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/james-ockenfels-770811391/" target="_blank">linkedin</a>
+        <a href="https://www.linkedin.com/in/james-ockenfels-770811391/" target="_blank">LinkedIn</a>
         <a href="https://tryhackme.com/p/hackerman102030" target="_blank">TryHackMe</a>
     </footer>
 </body>

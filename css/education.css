@@ -15,9 +15,8 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* makes footer stick to bottom */
-        background: linear-gradient(135deg, #e0eafc, #cfdef3);
-
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
     color: #333;
 }
 
@@ -56,7 +55,6 @@ header h1 {
     color: #45a29e;
 }
 
-/* Hamburger */
 .menu-toggle {
     display: none;
     font-size: 2rem;
@@ -65,116 +63,180 @@ header h1 {
 }
 
 /* ========================= */
-/* MAIN CONTENT */
+/* MAIN */
 /* ========================= */
 main {
-    flex: 1; /* pushes footer down */
+    flex: 1;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* top align content */
-    padding: 20px;
-    overflow-x: auto; /* prevents horizontal scroll clipping for wide table */
-}
-
-/* Desktop table */
-main .content table {
-    width: 100%;        /* fills container */
-    max-width: 800px;   /* limits max width */
-    margin: 0 auto 20px auto; /* centers table horizontally */
-    border-collapse: collapse;
-    text-align: left;
-}
-
-main .content img {
-    width: auto;
-    max-width: 45%; /* two images side by side */
-    margin: 0 10px;
-    display: inline-block;
-    vertical-align: top;
-    border-radius: 10px;
-    border: 2px dashed black;
-    padding-top: 25px;
-}
-
-.image-row {
-    text-align: center;
+    align-items: flex-start;
+    padding: 40px 20px;
 }
 
 .content {
     background-color: white;
-    padding: 40px;
+    padding: 50px 40px;
     box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.15);
     text-align: center;
     border-radius: 10px;
     width: 95%;
-    max-width: 90vw;
+    max-width: 900px;
 }
 
-/* Headings and Paragraphs */
-main h2 {
+.content h2 {
     font-size: 2.5rem;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     color: #1f2833;
 }
 
-main p {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
+.content .subtitle {
+    font-size: 1.05rem;
+    color: #666;
+    margin-bottom: 40px;
 }
 
 /* ========================= */
-/* TABLE STYLING */
-table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
+/* EDUCATION CARDS */
+/* ========================= */
+.edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
     text-align: left;
-    overflow-x: auto; /* scroll if table too wide */
-    display: block; /* makes horizontal scroll possible */
+    margin-bottom: 50px;
 }
 
-table thead {
+.edu-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.edu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(31, 40, 51, 0.12);
+    border-color: #66fcf1;
+}
+
+.edu-icon {
+    width: 52px;
+    height: 52px;
     background-color: #1f2833;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #66fcf1;
+    flex-shrink: 0;
 }
 
-table th, table td {
-    padding: 15px;
-    border: 1px solid #ddd;
+.edu-icon svg {
+    width: 26px;
+    height: 26px;
 }
 
-table tbody tr:nth-child(even) {
-    background-color: #f7f7f7;
+.edu-body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
-table tbody tr:hover {
-    background-color: #e0f0f5;
+/* Badge */
+.edu-badge {
+    display: inline-block;
+    background-color: #fff3cd;
+    color: #856404;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    width: fit-content;
 }
 
-table th {
-    font-weight: bold;
-    font-size: 1.2rem;
+.edu-badge--done {
+    background-color: #e0f7f5;
+    color: #45a29e;
 }
 
-table td {
+.edu-body h3 {
     font-size: 1rem;
-    color: #444;
+    font-weight: 700;
+    color: #1f2833;
+    line-height: 1.3;
+}
+
+.edu-institution {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #45a29e;
+}
+
+.edu-date {
+    font-size: 0.82rem;
+    color: #888;
 }
 
 /* ========================= */
-/* IMAGES */
-.content img {
+/* CERTIFICATES SECTION */
+/* ========================= */
+.certs-section {
+    border-top: 2px solid #e8edf2;
+    padding-top: 36px;
+}
+
+.certs-heading {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1f2833;
+    margin-bottom: 24px;
+}
+
+.certs-grid {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.cert-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 45%;
+    max-width: 380px;
+}
+
+.cert-item img {
     width: 100%;
-    max-width: 400px;
-    height: auto;
-    margin: 25px auto 0 auto;
-    display: block; /* forces stacking */
     border-radius: 10px;
-    border: 2px dashed black;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 16px rgba(31, 40, 51, 0.08);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.cert-item img:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(31, 40, 51, 0.13);
+}
+
+.cert-item p {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #555;
 }
 
 /* ========================= */
 /* FOOTER */
+/* ========================= */
 footer {
     background-color: #1f2833;
     color: #c5c6c7;
@@ -186,9 +248,7 @@ footer {
     gap: 15px;
 }
 
-footer p {
-    margin: 0;
-}
+footer p { margin: 0; }
 
 footer a {
     color: #66fcf1;
@@ -196,21 +256,15 @@ footer a {
     transition: color 0.3s ease;
 }
 
-footer a:hover {
-    color: #45a29e;
-}
+footer a:hover { color: #45a29e; }
 
 /* ========================= */
-/* MOBILE STYLES */
+/* MOBILE */
+/* ========================= */
 @media (max-width: 1000px) {
+    header { padding: 15px; }
 
-    header {
-        padding: 15px;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
+    .menu-toggle { display: block; }
 
     .right-header {
         width: 100%;
@@ -234,49 +288,18 @@ footer a:hover {
         font-size: 1rem;
     }
 
-    main h2 {
-        font-size: 1.8rem;
-    }
-
-    main p, table th, table td {
-        font-size: 1rem;
-    }
-
-    table th, table td {
-        padding: 10px;
-    }
-
     .content {
-        padding: 20px;
+        padding: 30px 20px;
     }
 
-    .content img {
-        max-width: 100%; /* images stacked and scaled */
-    }
-}
+    .content h2 { font-size: 1.8rem; }
 
-@media (min-width: 769px) {
-    /* Images side by side */
-    .image-row {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
+    .edu-grid {
+        grid-template-columns: 1fr;
     }
 
-    .image-row img {
-        display: block;
-        width: 45%;
-        max-width: 400px;
-        margin: 0;
-    }
-
-    /* Table centered */
-    table {
-        display: table;        /* default table display */
-        margin: 0 auto 30px;   /* centers table */
-        width: 80%;            /* desktop width */
-        max-width: 800px;
-        overflow: visible;     /* remove block scroll behavior */
+    .cert-item {
+        width: 100%;
+        max-width: 100%;
     }
 }
