@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://james-ockenfels.github.io/james-ockenfels/sitemap.xml
+Sitemap: https://james-ockenfels.github.io/sitemap.xml
