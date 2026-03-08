@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Ockenfels - Setting Up My Home Lab</title>
+    <link rel="icon" type="image/x-icon" href="../../img/FAVICON.png">
+    <link rel="stylesheet" href="../../css/blog-post.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com" rel="stylesheet">
+
+</head>
+<body>
+
+    <header>
+        <div class="left-header">
+            <h1>James Ockenfels</h1>
+        </div>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+        <nav class="right-header">
+            <a href="../../index.html">Home</a>
+            <a href="../projects.html">Projects</a>
+            <a href="../goals.html">Goals</a>
+            <a href="../education.html">Education</a>
+            <a href="../about.html">About Me</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../downloads.html">Downloads</a>
+            <a href="../blog.html" class="active">Blog</a>
+        </nav>
+    </header>
+
+    <script>
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.querySelector(".right-header");
+        toggle.addEventListener("click", () => nav.classList.toggle("active"));
+    </script>
+
+   <main>
+        <div class="post-container">
+
+            <!-- Back link -->
+            <a href="../blog.html" class="back-link">← Back to Blog</a>
+
+            <!-- Post header -->
+            <div class="post-header">
+                <span class="post-date">January 10, 2025</span>
+                <h2 class="post-title">I Earned the Google IT Support Certificate</h2>
+                <p class="post-subtitle">A quick look at Google's IT Support professional certificate, what it covers, what was actually useful, and whether it's worth doing.</p>
+            </div>
+
+            <!-- Hero image -->
+            <div class="post-hero-image">
+                <img src="../../img/GoogleIT.png" alt="Google IT Support Certificate" />
+            </div>
+
+            <!-- Post body -->
+            <div class="post-body">
+                <p>
+                    On January 10th, 2025 I completed the Google IT Support Professional Certificate. It's a five-course program on Coursera covering the fundamentals of IT support,hardware, operating systems, networking, system administration, and security basics. It wasn't a walk in the park, but it was definitely more approachable than what came after it. If you already have some hands-on IT experience going in, a lot of it will feel familiar, the value is in having it all laid out in a structured way.
+                </p>
+
+                <h3>What It Covers</h3>
+                <p>
+                    The five courses move through technical support fundamentals, computer networking, operating systems, system administration, and IT security. Each one builds on the last. The hardware and OS content was the most straightforward for me since I'd already done a lot of that through work and personal projects. The networking course was probably the most useful, it covers TCP/IP, DNS, DHCP, and subnetting in a clear way that made things I'd been doing by feel actually make sense.
+                </p>
+
+                <h3>How Hard Was It?</h3>
+                <p>
+                    Easier than I expected going in, but not trivial either. Some sections I moved through quickly, especially anything hardware or OS related. Others, like the system administration and security modules, needed a bit more focus. The quizzes kept you honest, you couldn't just skim and pass. Overall though, if you're already spending time in IT or doing labs on your own, you'll find it pretty manageable.
+                </p>
+
+                <h3>Was It Worth It?</h3>
+                <p>
+                    Yeah, for sure. It's a recognized credential that covers real material, and it filled in the theoretical gaps that hands-on experience alone doesn't always address. It also set me up well for the Google Cybersecurity certificate, which builds directly on a lot of what this one covers, and that one was a noticeably bigger step up.
+                </p>
+
+                <p>You can download my certificate on the <a href="../downloads.html">downloads page</a>.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>Connect with me:</p>
+        <a href="https://github.com/james-ockenfels" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/james-ockenfels-770811391/" target="_blank">LinkedIn</a>
+        <a href="https://tryhackme.com/p/hackerman102030" target="_blank">TryHackMe</a>
+    </footer>
+
+</body>
+</html>

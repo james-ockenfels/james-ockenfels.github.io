@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Ockenfels - Setting Up My Home Lab</title>
+    <link rel="icon" type="image/x-icon" href="../../img/FAVICON.png">
+    <link rel="stylesheet" href="../../css/blog-post.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com" rel="stylesheet">
+
+</head>
+<body>
+
+    <header>
+        <div class="left-header">
+            <h1>James Ockenfels</h1>
+        </div>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+        <nav class="right-header">
+            <a href="../../index.html">Home</a>
+            <a href="../projects.html">Projects</a>
+            <a href="../goals.html">Goals</a>
+            <a href="../education.html">Education</a>
+            <a href="../about.html">About Me</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../downloads.html">Downloads</a>
+            <a href="../blog.html" class="active">Blog</a>
+        </nav>
+    </header>
+
+    <script>
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.querySelector(".right-header");
+        toggle.addEventListener("click", () => nav.classList.toggle("active"));
+    </script>
+
+   <main>
+        <div class="post-container">
+
+            <!-- Back link -->
+            <a href="../blog.html" class="back-link">← Back to Blog</a>
+
+            <!-- Post header -->
+            <div class="post-header">
+                <span class="post-date">February 27, 2026</span>
+                <h2 class="post-title">I Earned the Google Cybersecurity Certificate</h2>
+                <p class="post-subtitle">Eight courses covering Linux, Python, SQL, networking, and security tools, here's what stood out and what I actually learned.</p>
+            </div>
+
+            <!-- Hero image -->
+            <div class="post-hero-image">
+                <img src="../../img/GoogleCyberSecuirty.png" alt="Google Cybersecurity Certificate" />
+            </div>
+
+            <!-- Post body -->
+            <div class="post-body">
+                <p>
+                    On February 27th, 2026 I finished the Google Cybersecurity Professional Certificate, an eight-course program that picks up where the IT Support certificate left off and goes deep into cybersecurity specifically. It was a meaningful step up in difficulty and covered a lot of ground I genuinely hadn't touched before. Here's what I got out of it.
+                </p>
+
+                <h3>What It Covers</h3>
+                <p>
+                    The program spans eight courses: foundations of cybersecurity, managing security risks, networks and network security, Linux and SQL, assets and threats and vulnerabilities, detection and response, automating tasks with Python, and a capstone course. It's a lot and it earns that reputation. Each course has labs, quizzes, and activities that actually make you apply the material rather than just read about it.
+                </p>
+
+                <h3>Linux Was Genuinely Useful</h3>
+                <p>
+                    The Linux module was one of the highlights for me. I'd used Linux before through TryHackMe and my own home lab, but this course gave me a more systematic understanding of the command line, navigating the file system, managing permissions, working with processes, and using tools that come up constantly in security work. It's the kind of foundational skill that pays dividends in basically everything else you do in this field.
+                </p>
+
+                <h3>SQL Was the Surprise</h3>
+                <p>
+                    I didn't expect to find SQL as interesting as I did. The course covers how to query databases, filter results, join tables, and use SQL for log analysis and security investigations. It made sense once I thought about it, a huge amount of security work involves digging through logs and data, and SQL is one of the most practical tools for doing that efficiently. It's something I want to keep building on.
+                </p>
+
+                <h3>Python for Security</h3>
+                <p>
+                    Coming in with Python experience from my scripting fundamentals class helped a lot here. The course covers using Python to automate repetitive security tasks, parsing logs, writing scripts to flag suspicious activity, and working with files and strings. It reinforced a lot of what I'd already learned while showing me how those skills apply specifically to a security context.
+                </p>
+
+                <h3>Networking and Security Tools</h3>
+                <p>
+                    The networking content built directly on the Google IT Support certificate, going deeper into how attacks work at the network level and how tools like Wireshark, tcpdump, and SIEM platforms are used for detection and response. The security tools section was particularly interesting, getting exposure to the categories of tools that actual security teams use day to day, rather than just theoretical concepts, made the material feel real and applicable.
+                </p>
+
+                <h3>How Hard Was It?</h3>
+                <p>
+                    Moderate to hard in places. The earlier courses were manageable if you'd done the IT Support certificate first, but the later courses, especially the Python automation and detection and response modules, required genuine effort. The labs were the most valuable part and also the most challenging. There were definitely moments where I had to slow down, re-read, and try things a few times before they clicked.
+                </p>
+
+                <h3>What's Next</h3>
+                <p>
+                    With both Google certificates done, the natural next step for me is working toward CompTIA certifications, A+, Network+, and Security+. The Google programs gave me a strong foundation and a credential to show for it, but the CompTIA certs are more widely recognized in the industry and will help me stand out when I start applying for jobs or internships in cybersecurity. That's the goal I'm working toward now.
+                </p>
+
+                <p>You can download my certificate on the <a href="../downloads.html">downloads page</a>.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>Connect with me:</p>
+        <a href="https://github.com/james-ockenfels" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/james-ockenfels-770811391/" target="_blank">LinkedIn</a>
+        <a href="https://tryhackme.com/p/hackerman102030" target="_blank">TryHackMe</a>
+    </footer>
+
+</body>
+</html>
