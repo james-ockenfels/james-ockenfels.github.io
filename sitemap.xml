@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+   <!-- Main Pages -->
+   <url>
+      <loc>https://james-ockenfels.github.io/</loc>
+      <lastmod>2026-03-10</lastmod>
+      <priority>1.0</priority>
+   </url>
+
+   <url>
+      <loc>https://james-ockenfels.github.io/html/about.html</loc>
+      <lastmod>2026-03-10</lastmod>
+      <priority>0.8</priority>
+   </url>
+
+   <url>
+      <loc>https://james-ockenfels.github.io/html/projects.html</loc>
+      <lastmod>2026-03-10</lastmod>
+      <priority>0.8</priority>
+   </url>
+
+   <url>
+      <loc>https://james-ockenfels.github.io/html/blog.html</loc>
+      <lastmod>2026-03-10</lastmod>
+      <priority>0.8</priority>
+   </url>
+
+   <url>
+      <loc>https://james-ockenfels.github.io/html/education.html</loc>
+      <lastmod>2026-03-10</lastmod>
+      <priority>0.7</priority>
+   </url>
+
+   <url>
+      <loc>https://james-ockenfels.github.io/html/goals.html</loc>
+      <lastmod>2026-03-10</lastmod>
+      <priority>0.7</priority>
+   </url>
+
+   <url>
+      <loc>https://james-ockenfels.github.io/html/contact.html</loc>
+      <lastmod>2026-03-10</lastmod>
+      <priority>0.7</priority>
+   </url>
+
+   <url>
+      <loc>https://james-ockenfels.github.io/html/downloads.html</loc>
+      <lastmod>2026-03-10</lastmod>
+      <priority>0.6</priority>
+   </url>
+
+   <!-- Blog Posts -->
+   <url>
+      <loc>https://james-ockenfels.github.io/html/blog/website.html</loc>
+      <lastmod>2024-11-10</lastmod>
+      <priority>0.6</priority>
+   </url>
+
+   <url>
+      <loc>https://james-ockenfels.github.io/html/blog/ir-blaster.html</loc>
+      <lastmod>2024-12-20</lastmod>
+      <priority>0.6</priority>
+   </url>
+
+   <url>
+      <loc>https://james-ockenfels.github.io/html/blog/google-it.html</loc>
+      <lastmod>2025-01-10</lastmod>
+      <priority>0.6</priority>
+   </url>
+
+   <url>
+      <loc>https://james-ockenfels.github.io/html/blog/flipper32.html</loc>
+      <lastmod>2025-03-17</lastmod>
+      <priority>0.6</priority>
+   </url>
+
+   <url>
+      <loc>https://james-ockenfels.github.io/html/blog/website-scraper.html</loc>
+      <lastmod>2025-04-14</lastmod>
+      <priority>0.6</priority>
+   </url>
+
+   <url>
+      <loc>https://james-ockenfels.github.io/html/blog/secure-messenger.html</loc>
+      <lastmod>2025-05-12</lastmod>
+      <priority>0.6</priority>
+   </url>
+
+   <url>
+      <loc>https://james-ockenfels.github.io/html/blog/google-cyber-security.html</loc>
+      <lastmod>2026-02-27</lastmod>
+      <priority>0.6</priority>
+   </url>
+
+   <url>
+      <loc>https://james-ockenfels.github.io/html/blog/repair-guide.html</loc>
+      <lastmod>2026-03-10</lastmod>
+      <priority>0.6</priority>
+   </url>
+
+</urlset>
