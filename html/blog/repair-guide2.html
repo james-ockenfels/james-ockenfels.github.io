@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Page Title -->
-    <title>I Wrote the Repair Guide for My IT Internship | James Ockenfels</title>
+    <title>Writing an Acer Chromebook Repair Guide | James Ockenfels</title>
     <!-- SEO -->
-    <meta name="description" content="With this year's IT internship cohort being all seniors and no juniors, I wrote a full HP Chromebook 14 G7 repair guide to make sure the knowledge doesn't disappear when we graduate.">
+    <meta name="description" content="With the district switching to brand new Acer Chromebooks and our all-senior cohort graduating, I wrote a second hardware repair guide to help future IT interns transition to the new hardware design.">
     <meta name="author" content="James Ockenfels">
-    <meta name="keywords" content="HP Chromebook repair, IT intern, Ottumwa High School, Chromebook 14 G7, repair guide, knowledge transfer, James Ockenfels">
+    <meta name="keywords" content="Acer Chromebook repair, IT intern, Ottumwa High School, Chromebook repair guide, hardware documentation, knowledge transfer, James Ockenfels">
     <meta name="robots" content="index, follow">
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://james-ockenfels.github.io/html/blog/repair-guide.html">
+    <link rel="canonical" href="https://james-ockenfels.github.io/html/blog/repair-guide2.html">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="../../img/favicon.png">
     <!-- Styles -->
@@ -22,8 +22,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- ADD YOUR FONT LINK HERE -->
     <!-- Open Graph (Discord / LinkedIn / Slack previews) -->
-    <meta property="og:title" content="I Wrote Another Repair Guide for My IT Internship | James Ockenfels">
-    <meta property="og:description" content="All seniors, no juniors to pass knowledge to. So I wrote another full Chromebook repair guide before we graduate.">
+    <meta property="og:title" content="Writing an Acer Chromebook Repair Guide | James Ockenfels">
+    <meta property="og:description" content="A new hardware design meant my old guide wouldn't cut it. Here is how I built a foundational repair framework for the incoming Acer fleet.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://james-ockenfels.github.io/html/blog/repair-guide2.html">
     <meta property="og:image" content="https://james-ockenfels.github.io/img/blog/Repair-guide2.png">
@@ -35,7 +35,6 @@
     <meta name="theme-color" content="#0f172a">
 </head>
 <body>
-
     <header>
         <div class="left-header">
             <h1>James Ockenfels</h1>
@@ -52,91 +51,78 @@
             <a href="../blog.html" class="active">Blog</a>
         </nav>
     </header>
-
     <script>
         const toggle = document.getElementById("menu-toggle");
         const nav = document.querySelector(".right-header");
         toggle.addEventListener("click", () => nav.classList.toggle("active"));
     </script>
-
-<main>
+    <main>
         <div class="post-container">
-
             <!-- Back link -->
             <a href="../blog.html" class="back-link">← Back to Blog</a>
-
             <!-- Post header -->
             <div class="post-header">
-                <span class="post-date">March 10, 2026</span>
-                <h2 class="post-title">I Wrote the Repair Guide for My IT Internship</h2>
-                <p class="post-subtitle">This year's internship cohort is all seniors with no juniors to pass knowledge down to. So I wrote a guide to make sure that knowledge doesn't just disappear when we graduate.</p>
+                <span class="post-date">April 10, 2026</span>
+                <h2 class="post-title">Writing a Second Repair Guide for the New Chromebook Fleet</h2>
+                <p class="post-subtitle">With the school district transitioning to brand new hardware models from a different manufacturer, I realized future interns would need a completely fresh set of instructions.</p>
             </div>
-
             <!-- Hero image -->
             <div class="post-hero-image">
-                <img src="../../img/blog/repair-guide2.png" alt="Chromebook Repair Guide" />
+                <img src="../../img/blog/repair-guide2.png" alt="Acer Chromebook Repair Guide" />
             </div>
-
             <!-- Post body -->
             <div class="post-body">
                 <p>
-                    I've been an IT intern at Ottumwa High School since August 2024. The internship is open to juniors and seniors, and normally it's a mix of both. The way it's supposed to work is that seniors teach the juniors throughout the year, and when the seniors graduate, the juniors move up and already know what they're doing. It's a built-in knowledge transfer system.
+                    Next school year, after I have graduated, our district will be rolling out brand new student Chromebooks. These devices are built by Acer instead of HP, meaning next year's cohort will be facing completely unfamiliar hardware without any experienced senior interns around to guide them through repairs.
                 </p>
                 <p>
-                    This year, every intern is a senior. There are seven of us, and none of us will be here next year. That means whatever we know about repairing these HP Chromebook 14 G7s walks out the door with us when we graduate unless we do something about it. So I wrote a guide.
+                    This year, every single intern is a senior. There are seven of us, and none of us will be here next year. Whatever we know about troubleshooting and working on student devices walks out the door when we graduate unless we proactively document it. Because of this structural shift, I sat down to write an entirely new guide.
                 </p>
 
                 <h3>Why It Was Needed</h3>
                 <p>
-                    Before I made this, there was no written reference for any of the repairs we do. Everything was passed down verbally or figured out on the job. That works fine when you have experienced seniors showing juniors the ropes in person. It does not work when the institutional knowledge has nowhere to go.
+                    I have already written one comprehensive repair manual for the devices we have been servicing for years, the HP 14 G7 models. However, these new incoming devices are engineered and designed entirely differently by Acer, making my previous documentation obsolete for the new fleet.
                 </p>
                 <p>
-                    On top of that, some of the things you learn in this role are genuinely not obvious. The two longer keyboard screws that destroy the keyboard tray if you put them in the wrong holes. The Wi-Fi chip that gets permanently fried if the battery is still connected when you work on it. The IHCC student devices that lose authentication if you Powerwash them. These are the kinds of things you only find out by making the mistake or being warned at exactly the right moment. A written guide catches all of it upfront.
+                    In addition, fresh hardware models always present a bit of a mystery because we do not yet know their common failure points. While the older HP models frequently suffered from recurring camera module failures, we do not know if these Acer models will share those exact same vulnerabilities, nor do we know the most optimal assembly shortcuts yet. Although this new initial guide cannot predict every specific future hardware failure, it establishes a clear structural layout so that new procedures and diagnostic notes can be added seamlessly by the next team.
                 </p>
 
                 <h3>What's In It</h3>
                 <p>
-                    The guide covers 10 hardware issues with step-by-step repair procedures. Screen replacement, keyboard replacement, charging diagnosis and battery replacement, top and bottom shell replacements, Wi-Fi chip replacement, Powerwash, touchpad replacement, camera replacement, and display cable swap. Each section includes warnings before the steps so you see the critical stuff before you start, not partway through when it's too late.
+                    The manual outlines 10 foundational hardware issues alongside step-by-step repair breakdowns. It covers bottom cover removal, battery replacement, keyboard replacement, touchpad replacement, screen replacement, display cable swapping, camera replacement, top shell replacement, and factory powerwashing procedures. Each independent section includes prominent warning blocks right at the top so technicians spot critical mechanical steps before starting, rather than halfway through when components are already at risk.
                 </p>
                 <p>
-                    There's also a quick reference table at the front that maps symptoms to the right section, parts diagrams pulled from the official HP service manual, a tools list, escalation guidelines, and general tips. The goal was that someone with no prior experience could pick it up on day one and actually use it.
+                    The layout also features a quick reference index table at the front that maps physical symptoms directly to the corresponding repair section, parts layouts gathered from official documentation, a core tools inventory list, escalation workflow guidelines, and general hardware tips. My goal was to create a reference document that someone with zero prior repair experience could pick up on day one and immediately use to resolve problems.
                 </p>
 
-                <h3>Who's Using It</h3>
+                <h3>Who Is Going to Be Using It</h3>
                 <p>
-                    The guide has been useful in ways I didn't fully expect. Obviously it's intended for next year's interns, but my fellow seniors have been using it too, because I included tips and tricks that not everyone had picked up yet. Even my supervisor, who doesn't personally do the repairs, has been referencing it. It ended up being a useful resource right now, not just a document for future interns.
-                </p>
-                <p>
-                    I'll be honest about something: I'm the best performing intern this year. That's not me being self-congratulatory, the IT lead told me directly and the metrics back it up. So a lot of what's in the guide reflects things I learned from doing more repairs and paying close attention to what went wrong and why. Writing it all down was a way to make sure that knowledge sticks around after I leave.
+                    While it was primarily designed to guide next year's incoming student interns, it will also serve as a reference for other district IT staff members who have equally little hands-on experience dealing with this specific Acer hardware lifecycle.
                 </p>
 
                 <h3>What Writing It Taught Me</h3>
                 <p>
-                    Writing documentation forces you to actually understand what you are doing. There were procedures I thought I had completely down that I had to slow down and think through carefully to write out in the right order. It also made me realize how much context I had built up without noticing. Things like the magnetic bit trick for simulating lid open and close during testing, or the reason you always test before reassembling rather than after. That kind of knowledge is easy to take for granted once it is in your head.
+                    Drafting detailed technical documentation forces you to build an absolute understanding of your own workflows. There were several procedures I assumed I knew perfectly, but slowing down to write them out forced me to evaluate the exact, logical order of operations. It also made me recognize just how much ambient context I had absorbed during my internship without consciously realizing it.
                 </p>
                 <p>
-                    Good documentation also has to be written for someone who doesn't already know what you know. That is genuinely harder than it sounds. The version 2.0 label on the cover exists because I revised it after getting feedback and finding things that weren't clear enough the first time.
+                    Tricks like using a magnetic bit to simulate a laptop lid closing during open-bench testing, or verifying system functionality completely before screwing the outer casing back together, are easy to take for granted once they become second nature. Effective technical documentation must be written directly for the perspective of someone who does not know what you know. This is a difficult writing balance to strike, which is why the version 2.0 label exists on the cover page. I heavily revised the material after collecting peer feedback to resolve anything that lacked absolute clarity on the first pass.
                 </p>
 
                 <h3>Why I'm Proud of It</h3>
                 <p>
-                    Of everything I've done in this internship, this is the thing I'm most proud of. Doing repairs is valuable, but building something that outlasts your time in a role and makes things easier for the people who come after you feels like a real contribution. The guide exists because I saw something that was needed and decided to make it. Nobody asked me to. I just did it.
+                    Of everything I have accomplished throughout this IT internship, these documentation initiatives are what I am most proud of. Performing day-to-day hardware repairs is incredibly valuable, but engineering resources that outlast your personal tenure to make life easier for the next group feels like a genuine professional contribution. This guide exists simply because I identified an operational gap and took the initiative to fix it.
                 </p>
-
-<div class="post-download">
-    <p>The full guide is available to download on my <a href="../downloads.html#repair-guide">downloads page</a>.</p>
-</div>
+                <div class="post-download">
+                    <p>The full guide is available to download on my <a href="../downloads.html#repair-guide2">downloads page</a>.</p>
+                </div>
             </div>
-
         </div>
     </main>
-
     <footer>
         <p>Connect with me:</p>
         <a href="https://github.com/james-ockenfels" target="_blank">GitHub</a>
         <a href="https://www.linkedin.com/in/james-ockenfels-770811391/" target="_blank">LinkedIn</a>
         <a href="https://tryhackme.com/p/hackerman102030" target="_blank">TryHackMe</a>
     </footer>
-
 </body>
 </html>
