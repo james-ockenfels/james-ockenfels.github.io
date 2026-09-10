@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Setup -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page Title -->
+    <title>Active Project Tracking | James Ockenfels</title>
+    <!-- SEO -->
+    <meta name="description" content="Real time development logs and technical documentation for my active engineering and hardware projects.">
+    <meta name="author" content="James Ockenfels">
+    <meta name="keywords" content="Coil gun, ESP32, Thyristor, Hardware engineering, Project tracking, James Ockenfels">
+    <meta name="robots" content="index, follow">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://github.io">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../img/favicon.png">
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/active_project.css">
+    <!-- Google Fonts Optimization -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <!-- Open Graph (Discord / LinkedIn / Slack previews) -->
+    <meta property="og:title" content="Active Project Tracking | James Ockenfels">
+    <meta property="og:description" content="In-progress development updates on my magnetic coil launcher and hardware automation builds.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.io">
+    <meta property="og:image" content="https://github.io">
+    <meta property="og:site_name" content="James Ockenfels">
+    <!-- Browser Theme Color -->
+    <meta name="theme-color" content="#0f172a">
+</head>
+<body>
+    <header>
+        <div class="left-header">
+            <h1>James Ockenfels</h1>
+        </div>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+        <nav class="right-header">
+            <a href="../index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="goals.html">Goals</a>
+            <a href="education.html">Education</a>
+            <a href="about.html">About Me</a>
+            <a href="contact.html">Contact</a>
+            <a href="downloads.html">Downloads</a>
+            <a href="blog.html">Blog</a>
+            <a href="active_project.html">Active Project</a>
+        </nav>
+    </header>
+    <script>
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.querySelector(".right-header");
+        toggle.addEventListener("click", () => nav.classList.toggle("active"));
+    </script>
+<main>
+    <!-- Project Overview Panel -->
+    <div class="project-hero">
+        <div class="project-hero-header">
+            <div class="status-indicator">
+                <span class="status-dot"></span>
+                <span class="status-text">Active Development Lab Log</span>
+            </div>
+
+            <h2 class="project-main-title">Magnetic Coil Launcher (Coil Gun)</h2>
+
+            <p class="project-main-summary">
+                An ongoing multi-stage electromagnetic acceleration project using an ESP32
+                microcontroller, high-voltage energy storage, custom switching hardware,
+                and optical velocity measurement. This page documents the development
+                process and experimental results as the project progresses.
+            </p>
+        </div>
+
+        <!-- Project Progress Bar Component -->
+        <div class="progress-container">
+            <div class="progress-label-row">
+                <span class="progress-phase">Phase: Stage 2 Testing &amp; Troubleshooting</span>
+                <span class="progress-percentage">50% Complete</span>
+            </div>
+
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width: 50%;"></div>
+            </div>
+        </div>
+
+        <!-- Simplified Core Technical Specs List -->
+        <div class="specs-list-wrapper">
+            <h4 class="specs-list-title">Core Technical Specs</h4>
+
+            <ul class="specs-text-list">
+                <li><strong>Control Unit:</strong> ESP32 microcontroller with hardware interrupt based telemetry</li>
+                <li><strong>Energy System:</strong> High-voltage capacitor based pulse system</li>
+                <li><strong>Switching:</strong> High-current thyristor based switching during the current test configuration</li>
+                <li><strong>Telemetry:</strong> Dual infrared optical velocity measurement system</li>
+                <li><strong>Project Status:</strong> Stage 2 testing has identified a significant efficiency problem requiring further investigation</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- Chronological Engineering Logs Timeline -->
+    <div class="timeline-section">
+        <h3 class="timeline-section-title">Development Log Updates</h3>
+
+
+        <!-- Entry 1: Firmware -->
+        <div class="log-card">
+            <div class="log-meta">
+                <span class="log-date">August 22, 2026</span>
+                <span class="log-tag">Firmware Implementation</span>
+            </div>
+
+            <h4 class="log-title">ESP32 Timing and Optical Telemetry Framework</h4>
+
+            <div class="log-content">
+                <p>
+                    The first major software milestone was establishing the ESP32 timing
+                    framework used throughout the later experiments. The controller was
+                    configured to work with optical sensors and microsecond-level timing
+                    measurements.
+                </p>
+
+                <p>
+                    The optical chronograph determines projectile velocity by measuring
+                    the amount of time that a projectile blocks an infrared beam. The
+                    measured interval can then be compared against the known projectile
+                    length to determine velocity.
+                </p>
+
+                <pre><code>// --- TIME-CRITICAL CONTROL FRAMEWORK ---
+// Optical sensor events are captured using hardware interrupts.
+//
+// The resulting timestamps are used by the telemetry
+// system to calculate projectile velocity.
+//
+// Stage sequencing is handled independently from
+// the optical measurement routines.</code></pre>
+            </div>
+        </div>
+
+
+        <!-- Entry 2: Hardware Architecture -->
+        <div class="log-card">
+            <div class="log-meta">
+                <span class="log-date">August 25, 2026</span>
+                <span class="log-tag">Hardware Architecture</span>
+            </div>
+
+            <h4 class="log-title">Hardware Architecture and Voltage Monitoring</h4>
+
+            <div class="log-content">
+                <p>
+                    After establishing the firmware measurement framework, I documented
+                    the hardware architecture used by the experimental platform. The
+                    design separates the ESP32 control electronics from the higher-energy
+                    portions of the system.
+                </p>
+
+                <p>
+                    A voltage monitoring circuit was also developed so that the controller
+                    could observe the state of the energy storage system without directly
+                    exposing the ESP32 to the high-voltage rail.
+                </p>
+
+                <p>
+                    The optical telemetry system was integrated into the same control
+                    architecture so that velocity measurements could be collected during
+                    later single-stage and multi-stage experiments.
+                </p>
+
+                <!-- Multi-Image Schematic Grid Layout -->
+                <div class="media-grid">
+                    <div class="media-item">
+                        <img src="../img/voltage_divider.png"
+                             alt="Analog voltage monitoring divider schematic"
+                             onerror="this.style.display='none';">
+
+                        <span class="media-caption">
+                            Analog voltage monitoring interface used to scale the measured
+                            voltage for the control electronics.
+                        </span>
+                    </div>
+
+                    <div class="media-item">
+                        <img src="../img/coil_gun_schematic.png"
+                             alt="Control and optical measurement schematic"
+                             onerror="this.style.display='none';">
+
+                        <span class="media-caption">
+                            System-level schematic showing the control, switching, and
+                            optical measurement portions of the experimental platform.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Entry 3: Stage 1 Baseline -->
+        <div class="log-card">
+            <div class="log-meta">
+                <span class="log-date">August 29, 2026</span>
+                <span class="log-tag">Stage 1 Testing</span>
+            </div>
+
+            <h4 class="log-title">Stage 1 Velocity and Voltage Characterization</h4>
+
+            <div class="log-content">
+                <p>
+                    Before beginning the multi-stage experiments, I established a
+                    single-stage baseline. This was important because the second stage
+                    could not be evaluated properly without first knowing how the
+                    first stage performed on its own.
+                </p>
+
+                <p>
+                    The voltage sweep was performed using a 35 mm projectile with the
+                    projectile positioned at the same nominal starting distance for
+                    comparison between trials.
+                </p>
+
+                <div class="specs-list-wrapper">
+                    <h4 class="specs-list-title">Stage 1 Voltage Sweep</h4>
+
+                    <ul class="specs-text-list">
+                        <li><strong>400 V:</strong> 21.30 m/s average velocity</li>
+                        <li><strong>350 V:</strong> 19.67 m/s average velocity</li>
+                        <li><strong>300 V:</strong> 16.73 m/s average velocity</li>
+                        <li><strong>250 V:</strong> 14.38 m/s average velocity</li>
+                        <li><strong>200 V:</strong> 10.92 m/s average velocity</li>
+                        <li><strong>150 V:</strong> 6.76 m/s average velocity</li>
+                        <li><strong>100 V:</strong> 3.52 m/s average velocity</li>
+                        <li><strong>50 V:</strong> 0.00 m/s recorded velocity</li>
+                        <li><strong>0 V:</strong> 0.00 m/s recorded velocity</li>
+                    </ul>
+                </div>
+
+                <p>
+                    The highest measured Stage 1 average velocity in this dataset was
+                    21.30 m/s at 400 V. The results provided the baseline used for the
+                    subsequent Stage 2 experiments.
+                </p>
+
+                <div class="specs-list-wrapper">
+                    <h4 class="specs-list-title">Starting Distance Sweep</h4>
+
+                    <ul class="specs-text-list">
+                        <li><strong>35 mm projectile:</strong> Best recorded average velocity in the distance sweep was 21.30 m/s.</li>
+                        <li><strong>40 mm projectile:</strong> Best recorded average velocity in the distance sweep was 16.92 m/s.</li>
+                        <li><strong>35 mm projectile mass:</strong> 9.57 g</li>
+                        <li><strong>40 mm projectile mass:</strong> 10.94 g</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Entry 4: Stage 2 Testing -->
+        <div class="log-card">
+            <div class="log-meta">
+                <span class="log-date">September 10, 2026</span>
+                <span class="log-tag">Stage 2 Troubleshooting</span>
+            </div>
+
+            <h4 class="log-title">Stage 2 Multi-Stage Timing Tests</h4>
+
+            <div class="log-content">
+                <p>
+                    After establishing the Stage 1 baseline, I began testing the second
+                    stage. The objective was to determine whether adding the second
+                    acceleration stage produced a measurable increase in final velocity.
+                </p>
+
+                <p>
+                    The initial results were unexpected. Across the tested timing
+                    configurations, enabling the second stage consistently resulted in
+                    a lower measured exit velocity than the corresponding Stage 1
+                    baseline.
+                </p>
+
+                <div class="specs-list-wrapper">
+                    <h4 class="specs-list-title">300 V Stage 2 Timing Results</h4>
+
+                    <ul class="specs-text-list">
+                        <li><strong>500 &micro;s:</strong> Stage 1 16.91 m/s, Stage 2 14.64 m/s, Difference -2.27 m/s</li>
+                        <li><strong>750 &micro;s:</strong> Stage 1 21.29 m/s, Stage 2 18.19 m/s, Difference -3.10 m/s</li>
+                        <li><strong>1000 &micro;s:</strong> Stage 1 23.16 m/s, Stage 2 20.56 m/s, Difference -2.60 m/s</li>
+                        <li><strong>1250 &micro;s:</strong> Stage 1 24.12 m/s, Stage 2 21.77 m/s, Difference -2.35 m/s</li>
+                        <li><strong>1500 &micro;s:</strong> Stage 1 23.57 m/s, Stage 2 21.64 m/s, Difference -1.93 m/s</li>
+                        <li><strong>1750 &micro;s:</strong> Stage 1 23.70 m/s, Stage 2 21.43 m/s, Difference -2.27 m/s</li>
+                        <li><strong>2000 &micro;s:</strong> Stage 1 24.50 m/s, Stage 2 21.97 m/s, Difference -2.53 m/s</li>
+                        <li><strong>2250 &micro;s:</strong> Stage 1 23.56 m/s, Stage 2 22.17 m/s, Difference -1.39 m/s</li>
+                        <li><strong>2500 &micro;s:</strong> Stage 1 24.04 m/s, Stage 2 21.48 m/s, Difference -2.56 m/s</li>
+                        <li><strong>2750 &micro;s:</strong> Stage 1 23.84 m/s, Stage 2 21.23 m/s, Difference -2.61 m/s</li>
+                        <li><strong>3000 &micro;s:</strong> Stage 1 24.40 m/s, Stage 2 21.70 m/s, Difference -2.70 m/s</li>
+                    </ul>
+                </div>
+
+                <p>
+                    The results show that the Stage 2 configuration did not produce a
+                    positive net velocity gain in this test series. The measured
+                    differences remained negative throughout the tested timing range.
+                </p>
+
+                <div class="specs-list-wrapper">
+                    <h4 class="specs-list-title">200 V Stage 2 Timing Results</h4>
+
+                    <ul class="specs-text-list">
+                        <li><strong>500 &micro;s:</strong> Stage 1 11.06 m/s, Stage 2 9.91 m/s, Difference -1.15 m/s</li>
+                        <li><strong>750 &micro;s:</strong> Stage 1 13.99 m/s, Stage 2 11.74 m/s, Difference -2.25 m/s</li>
+                        <li><strong>1000 &micro;s:</strong> Stage 1 16.48 m/s, Stage 2 14.32 m/s, Difference -2.16 m/s</li>
+                        <li><strong>1250 &micro;s:</strong> Stage 1 17.59 m/s, Stage 2 15.04 m/s, Difference -2.55 m/s</li>
+                        <li><strong>1500 &micro;s:</strong> Stage 1 17.51 m/s, Stage 2 15.35 m/s, Difference -2.16 m/s</li>
+                        <li><strong>1750 &micro;s:</strong> Stage 1 17.79 m/s, Stage 2 16.30 m/s, Difference -1.49 m/s</li>
+                        <li><strong>2000 &micro;s:</strong> Stage 1 17.59 m/s, Stage 2 16.07 m/s, Difference -1.52 m/s</li>
+                        <li><strong>2250 &micro;s:</strong> Stage 1 17.91 m/s, Stage 2 16.22 m/s, Difference -1.69 m/s</li>
+                    </ul>
+                </div>
+
+                <p>
+                    A reduced-capacitance configuration was also tested. The recorded
+                    results showed a smaller negative velocity difference in several
+                    timing trials compared with the larger-capacitance configuration.
+                    This became an important observation for the ongoing investigation,
+                    although the second stage still did not provide a positive net gain.
+                </p>
+
+                <div class="specs-list-wrapper">
+                    <h4 class="specs-list-title">Reduced Stage 2 Capacitance Results</h4>
+
+                    <ul class="specs-text-list">
+                        <li><strong>500 &micro;s:</strong> Stage 1 14.07 m/s, Stage 2 12.87 m/s, Difference -1.20 m/s</li>
+                        <li><strong>750 &micro;s:</strong> Stage 1 17.88 m/s, Stage 2 16.20 m/s, Difference -1.68 m/s</li>
+                        <li><strong>1000 &micro;s:</strong> Stage 1 19.19 m/s, Stage 2 17.06 m/s, Difference -2.13 m/s</li>
+                        <li><strong>1250 &micro;s:</strong> Stage 1 19.67 m/s, Stage 2 17.60 m/s, Difference -2.07 m/s</li>
+                        <li><strong>1500 &micro;s:</strong> Stage 1 19.10 m/s, Stage 2 17.58 m/s, Difference -1.52 m/s</li>
+                        <li><strong>1750 &micro;s:</strong> Stage 1 18.23 m/s, Stage 2 16.25 m/s, Difference -1.98 m/s</li>
+                        <li><strong>2000 &micro;s:</strong> Stage 1 18.91 m/s, Stage 2 17.06 m/s, Difference -1.85 m/s</li>
+                        <li><strong>2250 &micro;s:</strong> Stage 1 18.22 m/s, Stage 2 16.81 m/s, Difference -1.41 m/s</li>
+                        <li><strong>2500 &micro;s:</strong> Stage 1 18.89 m/s, Stage 2 17.55 m/s, Difference -1.34 m/s</li>
+                    </ul>
+                </div>
+
+                <p>
+                    The current working hypothesis is that the second stage remains
+                    electrically active for longer than the ideal acceleration window.
+                    The observed behavior is consistent with the projectile experiencing
+                    magnetic braking as it passes through the second coil. Further
+                    hardware investigation is required before the second stage can be
+                    considered successful.
+                </p>
+
+                <!-- Responsive HTML5 Video Component -->
+                <div class="video-container">
+                    <video controls preload="metadata">
+                        <source src="../videos/coil_gun_demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+
+                    <span class="media-caption">
+                        Slow-motion experimental footage showing projectile interaction
+                        with the target.
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Entry 5: Additional Stage 2 Experiments -->
+        <div class="log-card">
+            <div class="log-meta">
+                <span class="log-date">September 10, 2026</span>
+                <span class="log-tag">Additional Testing</span>
+            </div>
+
+            <h4 class="log-title">Additional Stage 2 Timing Experiments</h4>
+
+            <div class="log-content">
+                <p>
+                    Additional experiments were recorded using both time-sequenced and
+                    position-triggered test configurations. These trials further
+                    confirmed that the second stage was not producing a positive net
+                    velocity increase in the tested configurations.
+                </p>
+
+                <div class="specs-list-wrapper">
+                    <h4 class="specs-list-title">Additional Recorded Results</h4>
+
+                    <ul class="specs-text-list">
+                        <li><strong>Time-sequenced tests:</strong> Multiple timing configurations produced negative measured velocity differences.</li>
+                        <li><strong>Position-triggered tests:</strong> Recorded results also remained below the corresponding Stage 1 velocity.</li>
+                        <li><strong>Overall observation:</strong> The Stage 2 problem was present across more than one timing approach.</li>
+                    </ul>
+                </div>
+
+                <p>
+                    These results shifted the investigation away from treating the issue
+                    as a single incorrect timing value. The current development focus is
+                    instead on understanding the switching behavior, magnetic field
+                    decay, and the interaction between the second stage and projectile
+                    motion.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- Current Status -->
+        <div class="log-card">
+            <div class="log-meta">
+                <span class="log-date">Current Status</span>
+                <span class="log-tag">In Progress</span>
+            </div>
+
+            <h4 class="log-title">Stage 2 Efficiency Investigation</h4>
+
+            <div class="log-content">
+                <p>
+                    The project is currently in the troubleshooting stage. Stage 1 has
+                    produced a repeatable baseline across multiple voltage and position
+                    tests, while the current Stage 2 configuration has consistently
+                    produced a negative net velocity difference.
+                </p>
+
+                <p>
+                    The next development phase will focus on understanding the electrical
+                    switching characteristics and the relationship between current decay,
+                    magnetic field behavior, and projectile position. Hardware changes
+                    are being considered as part of the ongoing research.
+                </p>
+
+                <p>
+                    This page will continue to be updated as new measurements, hardware
+                    revisions, and experimental observations are recorded. Completed
+                    portions of the project will eventually be moved into formal
+                    portfolio or blog documentation.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+
+    <footer>
+        <p>Connect with me:</p>
+        <a href="https://github.com" target="_blank">GitHub</a>
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        <a href="https://tryhackme.com" target="_blank">TryHackMe</a>
+    </footer>
+</body>
+</html>
