@@ -50,6 +50,12 @@
       <priority>0.6</priority>
    </url>
 
+   <url>
+      <loc>https://james-ockenfels.github.io/html/active_project.html</loc>
+      <lastmod>2026-09-10</lastmod>
+      <priority>0.6</priority>
+   </url>
+
    <!-- Blog Posts -->
    <url>
       <loc>https://james-ockenfels.github.io/html/blog/website.html</loc>
@@ -96,6 +102,18 @@
    <url>
       <loc>https://james-ockenfels.github.io/html/blog/repair-guide.html</loc>
       <lastmod>2026-03-10</lastmod>
+      <priority>0.6</priority>
+   </url>
+
+   <url>
+      <loc>https://james-ockenfels.github.io/html/blog/repair-guide2.html</loc>
+      <lastmod>2026-04-10</lastmod>
+      <priority>0.6</priority>
+   </url>
+
+   <url>
+      <loc>https://james-ockenfels.github.io/html/blog/auto-enroller.html</loc>
+      <lastmod>2026-05-17</lastmod>
       <priority>0.6</priority>
    </url>
 
